@@ -1,9 +1,9 @@
-# Construa um programa que armazena uma idade em uma váriavel e compara,
-# se a idade for maior que 18, apresenta "Maior de idade",
-# se a idade for menor que 12, apresenta "Você é uma criança"
-# e se for maior que 12 e menor que 18, apresenta "Você é um adolescente
+import os
+import sys
+from typing import Type
 
-def check_idade(idade):
+
+def check_idade(idade: int) -> str:
     if idade < 0:
         return 'Idade inválida'
     if idade < 12:
@@ -13,11 +13,12 @@ def check_idade(idade):
     else:
         return 'Maior de idade'
 
-def dialogo_idade():
+
+def dialogo_idade(template: Type['Template']) -> None:
     while True:
         try:
-            idade = int(input('Insira a sua idade: '))
-            text.resposta(check_idade(idade))
+            idade: int = int(input(template.generate_pergunta('Insira a sua idade: ')))
+            print(template.generate_resposta(check_idade(idade)))
             break
         except KeyboardInterrupt:
             print('Até Mais!')
@@ -25,21 +26,19 @@ def dialogo_idade():
         except ValueError:
             print('Erro! Insira apenas números inteiros!')
 
-def banner():
-    text.print_banner("Exercicio 4")
-    text.titulo('''
-Construa um programa que armazena uma idade em uma váriavel e compara,
+
+def start() -> None:
+    global Template
+    from utils.template import Template
+    titulo: str = '''Construa um programa que armazena uma idade em uma váriavel e compara,
 se a idade for maior que 18, apresenta "Maior de idade",
 se a idade for menor que 12, apresenta "Você é uma criança"
-e se for maior que 12 e menor que 18, apresenta "Você é um adolescente''')
-     
-def start():
-    global text
-    import utils.text as text
-    banner()
-    dialogo_idade()
-    
+e se for maior que 12 e menor que 18, apresenta "Você é um adolescente.'''
+    template: Type['Template'] = Template("Exercicio 4", titulo)
+    print(template)
+    dialogo_idade(template)
+
+
 if __name__ == '__main__':
-    import os, sys
     sys.path.insert(0, os.getcwd())
     start()

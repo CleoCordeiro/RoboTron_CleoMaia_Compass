@@ -1,33 +1,37 @@
-# Construa um programa que armazena em duas variaveis duas notas
-# e apresenta a média entre as duas
+import os
+import sys
+from typing import Type
 
-def media(nota1, nota2):
+
+def media(nota1: float, nota2: float) -> float:
     return (nota1 + nota2) / 2
 
-def dialogo_media():
+
+def dialogo_media(template: Type['Template']) -> None:
     while True:
         try:
-            nota1 = float(input(text.pergunta("Insira a primeira nota: ")))
-            nota2 = float(input(text.pergunta("Insira a segunda nota: ")))
-            text.resposta(f"A média entre o número {nota1} e o número {nota2} é: {media(nota1, nota2):.2f}")
+            nota1: int = float(input(template.generate_pergunta("Insira a primeira nota: ")))
+            nota2: int = float(input(template.generate_pergunta("Insira a segunda nota: ")))
+            print(template.generate_resposta(
+                f"A média entre o número {nota1} e o número {nota2}é: {media(nota1, nota2):.2f}"))
             break
         except KeyboardInterrupt:
             print("Até Mais!")
             break
-        except ValueError: 
+        except ValueError:
             print("Erro! Insira apenas números!")
 
-def banner():
-    text.print_banner("Exercicio 2")
-    text.titulo("Construa um programa que armazena em duas variaveis duas notas e apresenta a média entre as duas.")
 
-def start():
-    global text
-    import utils.text as text
-    banner()
-    dialogo_media()
-    
+def start() -> None:
+    global Template
+    from utils.template import Template
+    titulo: str = '''Construa um programa que armazena em duas variaveis duas notas
+e apresenta a média entre as duas.'''
+    template: Type['Template'] = Template("Exercicio 2", titulo)
+    print(template)
+    dialogo_media(template)
+
+
 if __name__ == '__main__':
-    import os, sys
     sys.path.insert(0, os.getcwd())
     start()

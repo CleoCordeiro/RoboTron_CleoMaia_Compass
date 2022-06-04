@@ -1,36 +1,40 @@
-# Construa um programa que recebe dois valores,
-# soma esses valores e apresenta se o resultado é par ou impar
+import os
+import sys
+from typing import Type
 
-def par_ou_impar(num1, num2):
+
+def par_ou_impar(num1: int, num2: int) -> str:
     if (num1 + num2) % 2 == 0:
         return "Par"
     else:
         return "Impar"
 
-def dialogo_par_ou_impar():
+
+def dialogo_par_ou_impar(template: Type['Template']) -> None:
     while True:
         try:
-            num1 = int(input(text.pergunta("Insira o primeiro número: ")))
-            num2 = int(input(text.pergunta("Insira o segundo número: ")))
-            text.resposta(f"A soma entre o número {num1} e o número {num2} é: {par_ou_impar(num1, num2)}")
+            num1: int = int(input(template.generate_pergunta("Insira o primeiro número: ")))
+            num2: int = int(input(template.generate_resposta("Insira o segundo número: ")))
+            print(template.generate_resposta(
+                f"A soma entre o número {num1} e o número {num2} é: {par_ou_impar(num1, num2)}"))
             break
         except KeyboardInterrupt:
             print("Até Mais!")
             break
-        except ValueError: 
+        except ValueError:
             print("Erro! Insira apenas números inteiros!")
 
-def banner():
-    text.print_banner("Exercicio 3")
-    text.titulo("""Construa um programa que recebe dois valores, soma esses valores e apresenta se o resultado é par ou impar""")
 
-def start():
-    global text
-    import utils.text as text
-    banner() 
-    dialogo_par_ou_impar()
+def start() -> None:
+    global Template
+    from utils.template import Template
+    titulo: str = '''Construa um programa que recebe dois valores,
+soma esses valores e apresenta se o resultado é par ou impar.'''
+    template: Type['Template'] = Template("Exercicio 3", titulo)
+    print(template)
+    dialogo_par_ou_impar(template)
+
 
 if __name__ == '__main__':
-    import os, sys
     sys.path.insert(0, os.getcwd())
     start()
