@@ -4,26 +4,24 @@
 #  Entrada: A entrada contém dois valores inteiros representando a hora de início e a hora de fim do jogo.
 #  Saída: Apresente a duração do jogo conforme exemplo abaixo
 
-def duracaoJogo(horaInicial, horaFinal):
+def duracao_jogo(horaInicial, horaFinal):
     if horaInicial < horaFinal:
         return horaFinal - horaInicial
     else:
         return 24 + horaFinal - horaInicial
 
-
-def dialogoDuracaoJogo():
+def dialogo_duracao_jogo():
     while True:
         try:
             horaInicial = int(input(text.pergunta("Insira a hora de início do jogo: ")))
             horaFinal = int(input(text.pergunta("Insira a hora de fim do jogo: ")))
-            text.resposta(f"O jogo durou {duracaoJogo(horaInicial, horaFinal)} hora(s)")
+            text.resposta(f"O jogo durou {duracao_jogo(horaInicial, horaFinal)} hora(s)")
             break
         except KeyboardInterrupt:
             print("Até Mais!")
             break
         except ValueError: 
             print("Erro! Insira apenas números!")
-
 
 def banner():
     text.print_banner("Exercicio 11")
@@ -34,12 +32,11 @@ tendo uma duração mínima de 1 hora e máxima de 24 horas. Entrada:
 A entrada contém dois valores inteiros representando a hora de início
 e a hora de fim do jogo. Saída: Apresente a duração do jogo conforme exemplo abaixo.''')
 
-
 def start():
     global text
     import utils.text as text
     banner()
-    dialogoDuracaoJogo()
+    dialogo_duracao_jogo()
     
 if __name__ == '__main__':
     import os, sys

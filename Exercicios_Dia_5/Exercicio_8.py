@@ -3,12 +3,11 @@
 # e apresentar o resultado fora da função. Se o valor for impar,
 # apresentar em uma função a tabuada de 1 a 10 de X.
 
-def fatorialOuTaboada(x):
+def fatorial_ou_tabuada(x):
     if x % 2 == 0:
         text.resposta(f"O fatorial de {x} é {fatorial(x)}")
     else:
-        text.resposta(taboada(x))
-
+        text.resposta(tabuada(x))
 
 def fatorial(x):
     if x == 1:
@@ -16,27 +15,24 @@ def fatorial(x):
     else:
         return x * fatorial(x-1)
 
-
-def taboada(x):
+def tabuada(x):
     taboadaStr = "Taboada de " + str(x) + ":\n"
     for i in range(1,11):
         taboadaStr += f"{x} x {i} = {x*i}\n"
     return taboadaStr
 
-
-class zeroNumberError(Exception):
+class ZeroNumberError(Exception):
     pass
 
-
-def dialogoFatorialOuTaboada():
+def dialogo_fatorial_ou_tabuada():
     while True:
         try:
             x = int(input("Insira um número: "))
             if x == 0:
-                raise zeroNumberError
-            fatorialOuTaboada(x)
+                raise ZeroNumberError
+            fatorial_ou_tabuada(x)
             break
-        except zeroNumberError:
+        except ZeroNumberError:
             print("Não é possível fazer a operação com zero!")
             break
         except KeyboardInterrupt:
@@ -58,7 +54,7 @@ def start():
     global text
     import utils.text as text
     banner()
-    dialogoFatorialOuTaboada()
+    dialogo_fatorial_ou_tabuada()
   
    
 if __name__ == '__main__':

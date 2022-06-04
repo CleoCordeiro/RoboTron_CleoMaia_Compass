@@ -4,8 +4,7 @@
 def media(nota1, nota2):
     return (nota1 + nota2) / 2
 
-
-def dialogoMedia():
+def dialogo_media():
     while True:
         try:
             nota1 = float(input(text.pergunta("Insira a primeira nota: ")))
@@ -22,13 +21,11 @@ def banner():
     text.print_banner("Exercicio 2")
     text.titulo("Construa um programa que armazena em duas variaveis duas notas e apresenta a média entre as duas.")
 
-
 def start():
     global text
     import utils.text as text
     banner()
-    dialogoMedia()
-    
+    dialogo_media()
     
 if __name__ == '__main__':
     import os, sys

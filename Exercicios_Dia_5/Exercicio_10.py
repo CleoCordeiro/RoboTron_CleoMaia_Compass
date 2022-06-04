@@ -1,7 +1,7 @@
 # Crie um programa que recebe uma lista com três frutas e compare com
 # uma lista com os valores ["maça", "banana", "pera"] e mostre as
 
-def compararLista(listaDeFrutas):
+def comparar_lista(listaDeFrutas):
     frutas = ["maça", "banana", "pera"]
     for i in listaDeFrutas:
         if i in frutas:
@@ -9,8 +9,7 @@ def compararLista(listaDeFrutas):
         else:
             text.resposta(f"A fruta {i} não está na lista")
 
-
-def dialogoCompararLista():
+def dialogo_comparar_lista():
     listaDeFrutas = []
     while True:
         try:
@@ -20,11 +19,10 @@ def dialogoCompararLista():
                     raise ValueError
                 listaDeFrutas.append(fruta)
             print()
-            compararLista(listaDeFrutas)
+            comparar_lista(listaDeFrutas)
             break
         except ValueError:
             raise ValueError("Não é possível inserir uma fruta vazia")
-
 
 def banner():
     text.print_banner("Exercicio 10")
@@ -32,13 +30,11 @@ def banner():
 Crie um programa que recebe uma lista com três frutas
 e compare com uma lista com os valores ["maça", "banana", "pera"]''')
 
-
 def start():
     global text
     import utils.text as text
     banner()
-    dialogoCompararLista()
-    
+    dialogo_comparar_lista()
     
 if __name__ == '__main__':
     import os, sys

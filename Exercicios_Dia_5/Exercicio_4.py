@@ -13,8 +13,7 @@ def check_idade(idade):
     else:
         return 'Maior de idade'
 
-
-def dialogoIdade():
+def dialogo_idade():
     while True:
         try:
             idade = int(input('Insira a sua idade: '))
@@ -26,7 +25,6 @@ def dialogoIdade():
         except ValueError:
             print('Erro! Insira apenas números inteiros!')
 
-
 def banner():
     text.print_banner("Exercicio 4")
     text.titulo('''
@@ -35,14 +33,12 @@ se a idade for maior que 18, apresenta "Maior de idade",
 se a idade for menor que 12, apresenta "Você é uma criança"
 e se for maior que 12 e menor que 18, apresenta "Você é um adolescente''')
      
-
 def start():
     global text
     import utils.text as text
     banner()
-    dialogoIdade()
+    dialogo_idade()
     
-
 if __name__ == '__main__':
     import os, sys
     sys.path.insert(0, os.getcwd())
