@@ -4,6 +4,14 @@ from typing import Type
 
 
 def check_idade(idade: int) -> str:
+    """ Verifica a idade e retorna uma mensagem de acordo com o caso.
+
+    Args:
+        idade (int): Idade a ser verificada.
+
+    Returns:
+        str: Mensagem de acordo com o caso.
+    """
     if idade < 0:
         return 'Idade inválida'
     if idade < 12:
@@ -15,6 +23,8 @@ def check_idade(idade: int) -> str:
 
 
 def dialogo_idade(template: Type['Template']) -> None:
+    """Função que realiza o dialogo com o usuário.
+        Pede para o usuário inserir uma idade."""
     while True:
         try:
             idade: int = int(input(template.generate_pergunta('Insira a sua idade: ')))
@@ -28,6 +38,10 @@ def dialogo_idade(template: Type['Template']) -> None:
 
 
 def start() -> None:
+    """
+    Função que inicia o programa.
+    Realiza importes na biblioteca utils.template e utils.file.
+    """
     global Template
     from utils.template import Template
     titulo: str = '''Construa um programa que armazena uma idade em uma váriavel e compara,

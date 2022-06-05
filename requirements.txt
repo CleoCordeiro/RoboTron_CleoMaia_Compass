@@ -1,2 +1,4 @@
 pyfiglet
-pick
+pandas
+requests
+beautifulsoup4

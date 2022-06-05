@@ -4,6 +4,14 @@ from typing import Type
 
 
 def comparar_lista(listaDeFrutas: list) -> str:
+    """ Função que compara a lista de frutas com a lista inserida pelo usuário.
+
+    Args:
+        listaDeFrutas (list): Lista de frutas inserida pelo usuário.
+
+    Returns:
+        str: Retorna uma string com a comparação entre as listas.
+    """
     frutas: list = ["maça", "banana", "pera"]
     resposta: str = ""
     for i in listaDeFrutas:
@@ -15,6 +23,8 @@ def comparar_lista(listaDeFrutas: list) -> str:
 
 
 def dialogo_comparar_lista(template: Type['Template']) -> None:
+    """ Função que mostra o dialogo para o usuário.
+    Pede para o usuário inserir o nome de 3 frutas."""
     listaDeFrutas: list = []
     while True:
         try:
@@ -30,6 +40,10 @@ def dialogo_comparar_lista(template: Type['Template']) -> None:
 
 
 def start() -> None:
+    """
+    Função que inicia o programa.
+    Realiza importes na biblioteca utils.template e utils.file.
+    """
     global Template
     from utils.template import Template
     titulo: str = '''Crie um programa que recebe uma lista com três frutas

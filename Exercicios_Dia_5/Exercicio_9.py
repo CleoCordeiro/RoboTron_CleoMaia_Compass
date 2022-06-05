@@ -4,6 +4,14 @@ from typing import Type
 
 
 def reverter_lista(lista: list) -> str:
+    """Função que inverte a ordem da lista.
+
+    Args:
+        lista (list): Lista a ser invertida.
+
+    Returns:
+        str: String com os valores da lista invertida.
+    """
     lista.reverse()
     resposta: str = ''
     for i in range(len(lista)):
@@ -12,6 +20,8 @@ def reverter_lista(lista: list) -> str:
 
 
 def dialogo_lista_reversa(template: Type['Template']) -> None:
+    """ Função que mostra o dialogo para o usuário.
+    Pede para o usuário inserir uma lista de 15 números."""
     lista: list = []
     while True:
         try:
@@ -24,6 +34,10 @@ def dialogo_lista_reversa(template: Type['Template']) -> None:
 
 
 def start() -> None:
+    """
+    Função que inicia o programa.
+    Realiza importes na biblioteca utils.template e utils.file.
+    """
     global Template
     from utils.template import Template
     titulo: str = '''Crie um programa que recebe 15 valores e armazena em uma lista,

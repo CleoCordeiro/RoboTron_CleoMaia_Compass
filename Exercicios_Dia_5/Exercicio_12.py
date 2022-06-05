@@ -4,6 +4,14 @@ from typing import Type
 
 
 def calcular_idade(dias: int) -> tuple:
+    """Função que calcula a idade de uma pessoa.
+
+    Args:
+        dias (int): Númeero de dias inserido pelo usuário.
+
+    Returns:
+        tuple: Retorna uma tupla com a idade em anos, meses e dias.
+    """
     anos: int = dias // 365
     meses: int = (dias % 365) // 30
     dias: int = (dias % 365) % 30
@@ -11,6 +19,8 @@ def calcular_idade(dias: int) -> tuple:
 
 
 def dialogo_idade(template: Type['Template']) -> None:
+    """Função que realiza o diálogo com o usuário.
+    Pede para o usuário a quantidade de dias."""
     while True:
         try:
             dias: int = int(input(template.generate_pergunta("Insira a idade em dias: ")))
@@ -23,6 +33,10 @@ def dialogo_idade(template: Type['Template']) -> None:
 
 
 def start() -> None:
+    """
+    Função que inicia o programa.
+    Realiza importes na biblioteca utils.template e utils.file.
+    """
     global Template
     from utils.template import Template
     titulo: str = '''Leia um valor inteiro correspondente à idade de uma pessoa em dias

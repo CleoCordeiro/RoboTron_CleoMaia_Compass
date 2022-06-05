@@ -1,0 +1,55 @@
+{
+  "campeonato_id": 10,
+  "nome": "Campeonato Brasileiro",
+  "slug": "campeonato-brasileiro",
+  "nome_popular": "Brasileirão",
+  "edicao_atual": {
+    "edicao_id": 20,
+    "temporada": "2021",
+    "nome": "Campeonato Brasileiro 2021",
+    "nome_popular": "Brasileirão 2021",
+    "slug": "campeonato-brasileiro-2021"
+  },
+  "fase_atual": {
+    "fase_id": 104,
+    "nome": "Fase Única",
+    "slug": "fase-unica",
+    "tipo": "pontos-corridos",
+    "_link": "/v1/campeonatos/10/fases/104"
+  },
+  "rodada_atual": {
+    "nome": "1ª Rodada",
+    "slug": "1a-rodada",
+    "rodada": 1,
+    "status": "agendada"
+  },
+  "status": "agendado",
+  "tipo": "Pontos Corridos",
+  "logo": "https://api.api-futebol.com.br/images/competicao/brasileiro-seriea.png",
+  "regiao": "nacional",
+  "fases": [
+    {
+      "fase_id": 104,
+      "edicao": {
+        "edicao_id": 20,
+        "temporada": "2021",
+        "nome": "Campeonato Brasileiro 2021",
+        "nome_popular": "Brasileirão 2021",
+        "slug": "campeonato-brasileiro-2021"
+      },
+      "nome": "Fase Única",
+      "slug": "fase-unica",
+      "status": "andamento",
+      "decisivo": false,
+      "eliminatorio": false,
+      "ida_e_volta": true,
+      "tipo": "pontos-corridos",
+      "grupos": [],
+      "chaves": [],
+      "rodadas": [],
+      "proxima_fase": null,
+      "fase_anterior": null,
+      "_link": "/v1/campeonatos/10/fases/104"
+    }
+  ]
+}

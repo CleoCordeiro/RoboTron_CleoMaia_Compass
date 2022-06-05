@@ -4,6 +4,15 @@ from typing import Type
 
 
 def duracao_jogo(horaInicial: int, horaFinal: int) -> int:
+    """Função que calcula a duração do jogo.
+
+    Args:
+        horaInicial (int): Hora de início do jogo.
+        horaFinal (int): Hora de fim do jogo.
+
+    Returns:
+        int: Retorna a duração do jogo.
+    """
     if horaInicial < horaFinal:
         return horaFinal - horaInicial
     else:
@@ -11,6 +20,8 @@ def duracao_jogo(horaInicial: int, horaFinal: int) -> int:
 
 
 def dialogo_duracao_jogo(template: Type['Template']) -> None:
+    """Função que realiza o diálogo com o usuário.
+    Pede para o usuário inserir a hora de início e fim do jogo."""
     while True:
         try:
             horaInicial: int = int(input(template.generate_pergunta("Insira a hora de início do jogo: ")))
@@ -25,6 +36,10 @@ def dialogo_duracao_jogo(template: Type['Template']) -> None:
 
 
 def start() -> None:
+    """
+    Função que inicia o programa.
+    Realiza importes na biblioteca utils.template e utils.file.
+    """
     global Template
     from utils.template import Template
     titulo: str = '''Leia a hora inicial e a hora final de um jogo. A seguir calcule a duração do jogo,

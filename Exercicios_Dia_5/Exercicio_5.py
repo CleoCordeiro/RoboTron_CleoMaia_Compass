@@ -4,10 +4,20 @@ from typing import Type
 
 
 def media_20_numeros(x: list) -> int:
+    """ Função que calcula a média de 20 números.
+
+    Args:
+        x (list): Lista de números digitados pelo usuário.
+
+    Returns:
+        int: Retorna a média de 20 números.
+    """
     return sum(x)/len(x)
 
 
 def dialogo_media_20_numeros(template: Type['Template']) -> None:
+    """Função que realiza o dialogo com o usuário.
+        Pede para o usuário inserir 20 números e armazena em uma lista."""
     while True:
         try:
             x: list = []
@@ -23,6 +33,10 @@ def dialogo_media_20_numeros(template: Type['Template']) -> None:
 
 
 def start() -> None:
+    """
+    Função que inicia o programa.
+    Realiza importes na biblioteca utils.template e utils.file.
+    """
     global Template
     from utils.template import Template
     titulo: str = '''Construa um programa que recebe 20 valores para X

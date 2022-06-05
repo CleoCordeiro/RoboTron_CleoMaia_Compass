@@ -4,10 +4,20 @@ from typing import Type
 
 
 def media(nota1: float, nota2: float) -> float:
+    """Faz a soma das notas e retorna a média.
+
+    Args:
+        nota1 (float): primeira nota
+        nota2 (float): segunda nota
+
+    Returns:
+        float: retorna a média das notas
+    """
     return (nota1 + nota2) / 2
 
 
 def dialogo_media(template: Type['Template']) -> None:
+    """Pergunta as notas para o usuário e mostra a média."""
     while True:
         try:
             nota1: int = float(input(template.generate_pergunta("Insira a primeira nota: ")))
@@ -23,6 +33,10 @@ def dialogo_media(template: Type['Template']) -> None:
 
 
 def start() -> None:
+    """
+    Função que inicia o programa.
+    Realiza importes na biblioteca utils.template e utils.file.
+    """
     global Template
     from utils.template import Template
     titulo: str = '''Construa um programa que armazena em duas variaveis duas notas

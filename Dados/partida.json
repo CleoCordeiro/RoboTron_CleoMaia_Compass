@@ -1,0 +1,36 @@
+{
+  "copa-do-brasil": [
+    {
+      "partida_id": 423,
+      "campeonato": {
+        "campeonato_id": 2,
+        "nome": "Copa do Brasil",
+        "slug": "copa-do-brasil"
+      },
+      "placar": "Santo André 4x1 Criciúma",
+      "time_mandante": {
+        "time_id": 62,
+        "nome_popular": "Santo André",
+        "sigla": "STA",
+        "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999d73aed9a.svg"
+      },
+      "time_visitante": {
+        "time_id": 1,
+        "nome_popular": "Criciúma",
+        "sigla": "CRI",
+        "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999b7c65f34.svg"
+      },
+      "placar_mandante": 4,
+      "placar_visitante": 1,
+      "status": "finalizado",
+      "slug": "santo-andre-criciuma-05-02-2020",
+      "data_realizacao": "05/02/2020",
+      "hora_realizacao": "16:30",
+      "data_realizacao_iso": "2020-02-05T16:30:00-0300",
+      "estadio": {
+        "estadio_id": 72,
+        "nome_popular": "Bruno José Daniel"
+      }
+    }
+  ]
+}

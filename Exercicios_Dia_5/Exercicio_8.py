@@ -4,6 +4,14 @@ from typing import Type
 
 
 def fatorial_ou_tabuada(x: int) -> None:
+    """Função que verifica se x é par ou impar e chama a função adequada.
+
+    Args:
+        x (int): Número inserido pelo usuário.
+
+    Returns:
+        _type_: Retorna uma string com a tabuada ou o fatorial de x.
+    """
     if x % 2 == 0:
         return f"O fatorial de {x} é {fatorial(x)}"
     else:
@@ -11,6 +19,14 @@ def fatorial_ou_tabuada(x: int) -> None:
 
 
 def fatorial(x: int) -> int:
+    """Função que retorna o fatorial de x.
+
+    Args:
+        x (int): Número inserido pelo usuário.
+
+    Returns:
+        int: Retorna o fatorial de x.
+    """
     if x == 1:
         return 1
     else:
@@ -18,6 +34,14 @@ def fatorial(x: int) -> int:
 
 
 def tabuada(x: int) -> str:
+    """Função que retorna a tabuada de 1 a 10 de x.
+
+    Args:
+        x (int): Número inserido pelo usuário.
+
+    Returns:
+        str: Retorna uma string com a tabuada de 1 a 10 de x.
+    """
     taboadaStr: str = "Taboada de " + str(x) + ":\n"
     for i in range(1, 11):
         taboadaStr += f"{x} x {i} = {x*i}\n"
@@ -29,6 +53,8 @@ class ZeroNumberError(Exception):
 
 
 def dialogo_fatorial_ou_tabuada(template: Type['Template']) -> None:
+    """Função que realiza o diálogo com o usuário.
+    Pede para o usuário inserir um número inteiro."""
     while True:
         try:
             x: int = int(input(template.generate_pergunta("Insira um número: ")))
@@ -47,6 +73,10 @@ def dialogo_fatorial_ou_tabuada(template: Type['Template']) -> None:
 
 
 def start() -> None:
+    """
+    Função que inicia o programa.
+    Realiza importes na biblioteca utils.template e utils.file.
+    """
     global Template
     from utils.template import Template
     titulo: str = '''Crie um programa que lê 1 valor inteiro para X.
