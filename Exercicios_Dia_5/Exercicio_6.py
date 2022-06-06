@@ -25,7 +25,7 @@ def dialogo_impares_ate_x(template: Type['Template']) -> None:
     """
     while True:
         try:
-            x: int = int(input(template.generate_pergunta("Insira um número: ")))
+            x: int = int(input(template.generate_pergunta("Insira um número inteiro: ")))
             print(template.generate_resposta(impares_ate_x(x)))
             break
         except KeyboardInterrupt:

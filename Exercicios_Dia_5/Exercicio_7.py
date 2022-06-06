@@ -3,7 +3,7 @@ import sys
 from typing import Type
 
 
-def media_inteiros(num1: int, num2: int) -> int:
+def media_inteiros(num1: int, num2: int) -> float:
     """ Recebe dois números inteiros e retorna a média.
 
     Args:
@@ -24,7 +24,7 @@ def dialogo_media_inteiros(template: Type['Template']) -> None:
             num1: int = int(input(template.generate_pergunta("Insira o primeiro número inteiro: ")))
             num2: int = int(input(template.generate_pergunta("Insira o segundo número inteiro: ")))
             print(template.generate_resposta(
-                f"A média dos números {[num1,num2]} é {media_inteiros(num1, num2)}"))
+                f"A média dos números {[num1,num2]} é {media_inteiros(num1, num2):.2f}"))
             break
         except KeyboardInterrupt:
             print("Até Mais!")

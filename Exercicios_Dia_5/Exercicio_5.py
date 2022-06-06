@@ -3,14 +3,14 @@ import sys
 from typing import Type
 
 
-def media_20_numeros(x: list) -> int:
+def media_20_numeros(x: list) -> float:
     """ Função que calcula a média de 20 números.
 
     Args:
         x (list): Lista de números digitados pelo usuário.
 
     Returns:
-        int: Retorna a média de 20 números.
+        float: Retorna a média de 20 números.
     """
     return sum(x)/len(x)
 
@@ -22,7 +22,7 @@ def dialogo_media_20_numeros(template: Type['Template']) -> None:
         try:
             x: list = []
             for i in range(20):
-                x.append(int((input(template.generate_pergunta(f"Insira o {i+1}º número: ")))))
+                x.append(int((input(template.generate_pergunta(f"Insira o {i+1}º número inteiro: ")))))
             print(template.generate_resposta(f"A média dos números {x} é: {media_20_numeros(x):.2f}"))
             break
         except KeyboardInterrupt:

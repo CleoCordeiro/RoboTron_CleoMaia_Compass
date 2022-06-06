@@ -3,14 +3,14 @@ import sys
 from typing import Type
 
 
-def fatorial_ou_tabuada(x: int) -> None:
+def fatorial_ou_tabuada(x: int) -> str:
     """Função que verifica se x é par ou impar e chama a função adequada.
 
     Args:
         x (int): Número inserido pelo usuário.
 
     Returns:
-        _type_: Retorna uma string com a tabuada ou o fatorial de x.
+        str: Retorna uma string com a tabuada ou o fatorial de x.
     """
     if x % 2 == 0:
         return f"O fatorial de {x} é {fatorial(x)}"
@@ -57,7 +57,7 @@ def dialogo_fatorial_ou_tabuada(template: Type['Template']) -> None:
     Pede para o usuário inserir um número inteiro."""
     while True:
         try:
-            x: int = int(input(template.generate_pergunta("Insira um número: ")))
+            x: int = int(input(template.generate_pergunta("Insira um número inteiro: ")))
             if x == 0:
                 raise ZeroNumberError
             print(template.genare_resposta(fatorial_ou_tabuada(x)))

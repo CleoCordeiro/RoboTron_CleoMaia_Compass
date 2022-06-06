@@ -20,8 +20,8 @@ def dialogo_media(template: Type['Template']) -> None:
     """Pergunta as notas para o usuário e mostra a média."""
     while True:
         try:
-            nota1: int = float(input(template.generate_pergunta("Insira a primeira nota: ")))
-            nota2: int = float(input(template.generate_pergunta("Insira a segunda nota: ")))
+            nota1: float = float(input(template.generate_pergunta("Insira a primeira nota: ")))
+            nota2: float = float(input(template.generate_pergunta("Insira a segunda nota: ")))
             print(template.generate_resposta(
                 f"A média entre o número {nota1} e o número {nota2}é: {media(nota1, nota2):.2f}"))
             break

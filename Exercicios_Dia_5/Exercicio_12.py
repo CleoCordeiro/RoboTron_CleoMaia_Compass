@@ -3,18 +3,18 @@ import sys
 from typing import Type
 
 
-def calcular_idade(dias: int) -> tuple:
+def calcular_idade(idade_dias: int) -> tuple:
     """Função que calcula a idade de uma pessoa.
 
     Args:
-        dias (int): Númeero de dias inserido pelo usuário.
+        idade_dias (int): Númeero de dias inserido pelo usuário.
 
     Returns:
         tuple: Retorna uma tupla com a idade em anos, meses e dias.
     """
-    anos: int = dias // 365
-    meses: int = (dias % 365) // 30
-    dias: int = (dias % 365) % 30
+    anos: int = idade_dias // 365
+    meses: int = (idade_dias % 365) // 30
+    dias: int = (idade_dias % 365) % 30
     return anos, meses, dias
 
 
@@ -23,10 +23,10 @@ def dialogo_idade(template: Type['Template']) -> None:
     Pede para o usuário a quantidade de dias."""
     while True:
         try:
-            dias: int = int(input(template.generate_pergunta("Insira a idade em dias: ")))
-            idade: tuple = calcular_idade(dias)
+            idade_dias: int = int(input(template.generate_pergunta("Insira a idade em dias: ")))
+            idade: tuple = calcular_idade(idade_dias)
             print(template.generate_resposta(
-                f"{dias} dias equivalem a {idade[0]} anos, {idade[1]} meses e {idade[2]} dias de idade."))
+                f"{idade_dias} dias equivalem a {idade[0]} anos, {idade[1]} meses e {idade[2]} dias de idade."))
             break
         except ValueError:
             print("Erro! Insira apenas números!")
