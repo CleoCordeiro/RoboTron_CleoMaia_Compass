@@ -25,7 +25,7 @@ def dialogo_par_ou_impar(template: Type['Template']) -> None:
     while True:
         try:
             num1: int = int(input(template.generate_pergunta("Insira o primeiro número inteiro: ")))
-            num2: int = int(input(template.generate_resposta("Insira o segundo número inteiro: ")))
+            num2: int = int(input(template.generate_pergunta("Insira o segundo número inteiro: ")))
             print(template.generate_resposta(
                 f"A soma entre o número {num1} e o número {num2} é: {par_ou_impar(num1, num2)}"))
             break

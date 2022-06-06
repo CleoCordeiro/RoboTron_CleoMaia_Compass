@@ -60,7 +60,7 @@ def dialogo_fatorial_ou_tabuada(template: Type['Template']) -> None:
             x: int = int(input(template.generate_pergunta("Insira um número inteiro: ")))
             if x == 0:
                 raise ZeroNumberError
-            print(template.genare_resposta(fatorial_ou_tabuada(x)))
+            print(template.generate_resposta(fatorial_ou_tabuada(x)))
             break
         except ZeroNumberError:
             print("Não é possível fazer a operação com zero!")

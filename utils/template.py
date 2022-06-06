@@ -1,5 +1,4 @@
-from . import cores
-from . import utils as utils
+import utils as utils
 
 
 class Template:
@@ -60,7 +59,7 @@ class Template:
         Returns:
             str: A pergunta do exercício.
         """
-        return f"{cores.YELLOW}{pergunta}{cores.RESET}"
+        return f"{utils.colors['YELLOW']}{pergunta}{utils.colors['RESET']}"
 
     def generate_resposta(self, resposta: str) -> str:
         """Função que gera a resposta do exercício.
@@ -71,7 +70,7 @@ class Template:
         Returns:
             str: A resposta do exercício.
         """
-        return f"{cores.BLUE}{resposta}{cores.RESET}\n"
+        return f"{utils.colors['BLUE']}{resposta}{utils.colors['RESET']}\n"
 
     def __str__(self) -> str:
         """Função utilizada para imprimir o template."""
