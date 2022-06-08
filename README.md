@@ -16,7 +16,7 @@ Contem 16 exercícios de  manipulação de arquivos nos formatos json e csv.
 ## instalação
 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Uso
