@@ -1,4 +1,4 @@
-# Challagen Sprint 4
+# Challagen Sprint 4 <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
 ### Esse repositório foi criado para apresentação da lista de exercícios da challange do sprint 4.
