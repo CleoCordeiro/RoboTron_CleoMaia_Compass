@@ -33,7 +33,7 @@ python main.py
 
 ```bash
 # Segunda forma execução direta do exercício
-#Execute o exercício desejado, exemplo:
+# Execute o exercício desejado, exemplo:
 python Exercicios_Dia_5/Exercicio_1.py
 ```
 ## Autor
