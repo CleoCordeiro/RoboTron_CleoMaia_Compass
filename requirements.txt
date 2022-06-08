@@ -2,3 +2,4 @@ pyfiglet
 pandas
 requests
 beautifulsoup4
+pick
