@@ -15,6 +15,8 @@ def calcular_idade(idade_dias: int) -> tuple:
     anos: int = idade_dias // 365
     meses: int = (idade_dias % 365) // 30
     dias: int = (idade_dias % 365) % 30
+    if meses == 12:
+        dias = 1
     return anos, meses, dias
 
 
