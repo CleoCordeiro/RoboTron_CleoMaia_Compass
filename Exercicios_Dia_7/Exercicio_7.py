@@ -4,6 +4,11 @@ from typing import Type
 
 
 def chaves_json(template: Type['Template']) -> None:
+    """ Printa as chaves do JSON.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
     campeonato: dict = file.open_json("dados/campeonato.json")
     for key in campeonato:
         print(template.generate_resposta(key))

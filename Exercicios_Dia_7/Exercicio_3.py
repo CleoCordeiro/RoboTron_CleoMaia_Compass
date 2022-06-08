@@ -4,7 +4,12 @@ from typing import Type
 
 
 def estadio_placar_status(template: Type['Template']) -> None:
-    partidas: dict = file.open_json("Dados/partida.json")
+    """ Printa o nome do estádio, placar e status do jogo.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
+    partidas: dict = file.open_json("dados/partida.json")
     for copa in partidas:
         for jogo in partidas[copa]:
             nomeDoEstadio, placar, status = jogo["estadio"]["nome_popular"], jogo["placar"], jogo["status"]

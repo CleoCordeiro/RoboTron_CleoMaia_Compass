@@ -1,3 +1,4 @@
+import os
 from bs4 import BeautifulSoup
 import pandas as pd
 import requests
@@ -99,9 +100,20 @@ def return_position(last_period: str, eletrons: int, subclass_is_F: bool) -> tup
         return (last_period[:1], eletrons+2)
 
 
+def check_existe_file(filename: str) -> bool:
+    """ Função que verifica se o arquivo existe.
+
+    Args:
+        filename (str): path mais o nome do arquivo
+    """
+    return os.path.exists(filename)
+
+
 def start() -> None:
-    elementos: list = scrapy()
-    json_to_csv(elementos, 'Dados/TabelaPeriodica.csv')
+    filename = "dados/tabela_periodica.csv"
+    if not check_existe_file(filename):
+        elementos: list = scrapy()
+        json_to_csv(elementos, filename)
 
 
 if __name__ == '__main__':

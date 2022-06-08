@@ -3,17 +3,29 @@ import sys
 from typing import Type
 
 
-def primeirosDados(template: Type['Template'], title: str, data: dict) -> None:
+def primeiros_dados(template: Type['Template'], title: str, data: dict) -> None:
+    """ Printa os primeiros dados do JSON.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+        title (str): Título do JSON.
+        data (dict): Dicionário com os dados do JSON.
+    """
     dados: tuple = tuple(data.items())
     print(template.generate_resposta(f"{title}\n{dados[0]}\n{dados[1]}\n"))
 
 
-def filtrarDados(template: Type['Template']) -> None:
+def filtra_dados(template: Type['Template']) -> None:
+    """ Filtra os dados do JSON.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
     campeonato: dict = file.open_json("dados/campeonato.json")
     filterList: list = ['edicao_atual', 'fase_atual', 'rodada_atual']
     for key, value in campeonato.items():
         if filterList.__contains__(key):
-            primeirosDados(template, key, value)
+            primeiros_dados(template, key, value)
 
 
 def start() -> None:
@@ -28,7 +40,7 @@ def start() -> None:
 fase_atual, rodada_atual usando o JSON 2.'''
     template: Type['Template'] = Template("Exercicio 6", titulo)
     print(template)
-    filtrarDados(template)
+    filtra_dados(template)
 
 
 if __name__ == '__main__':

@@ -15,7 +15,7 @@ def start() -> None:
 como partida guarde em uma variável e printe o JSON inteiro no terminal.'''
     template: Type['Template'] = Template("Exercicio 1", titulo)
     print(template)
-    partida: dict = file.open_json("Dados/partida.json")
+    partida: dict = file.open_json("dados/partida.json")
     print(template.generate_resposta(file.dump_json(partida)))
 
 

@@ -24,7 +24,8 @@ Os exercícios podem ser executados de duas formas
 
 ```bash
 # Primeira forma menu interativo 
-#Execute o arquivo main que vai abrir o menu para seleção de exercíos.
+# Execute o arquivo main que vai abrir o menu para seleção de exercíos.
+# O menu deve ser selecionado usando as setas do teclado, apertando enter entra no menu selecionado.
 python main.py
 ```
 ![](assets/2022-06-07-22-40-58.gif)

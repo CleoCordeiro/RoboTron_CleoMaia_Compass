@@ -3,7 +3,12 @@ import sys
 from typing import Type
 
 
-def timeVisitante(template: Type['Template']) -> None:
+def time_visitante(template: Type['Template']) -> None:
+    """ Printa o nome do time visitante.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
     partidas = file.open_json("dados/partida.json")
     for copa in partidas:
         for jogo in partidas[copa]:
@@ -22,7 +27,7 @@ def start() -> None:
 o Placar e o Status do jogo dentro de variáveis e mostre-as.'''
     template: Type['Template'] = Template("Exercicio 4", titulo)
     print(template)
-    timeVisitante(template)
+    time_visitante(template)
 
 
 if __name__ == '__main__':

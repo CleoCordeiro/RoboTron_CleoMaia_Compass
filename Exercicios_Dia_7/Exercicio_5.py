@@ -15,7 +15,7 @@ def start() -> None:
 e printe todos os seus dados.'''
     template: Type['Template'] = Template("Exercicio 5", titulo)
     print(template)
-    campeonato = file.open_json('Dados/campeonato.json')
+    campeonato = file.open_json('dados/campeonato.json')
     print(template.generate_resposta(file.dump_json(campeonato)))
 
 

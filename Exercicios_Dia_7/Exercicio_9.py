@@ -5,7 +5,12 @@ from pandas import DataFrame
 
 
 def print_age(template: Type['Template']) -> None:
-    df: DataFrame = file.open_csv_from_pandas("Dados/CSV.csv")
+    """ Princa a coluna Age do CSV.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
+    df: DataFrame = file.open_csv_from_pandas("dados/csv.csv")
     print(template.generate_resposta(df[['Age']].to_string(index=False)))
 
 

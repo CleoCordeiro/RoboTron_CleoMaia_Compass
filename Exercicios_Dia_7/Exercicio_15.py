@@ -4,7 +4,12 @@ from typing import Type
 
 
 def todos_menos_the_revenant(template: Type['Template']) -> None:
-    df = file.open_csv_from_pandas("Dados/CSV.csv")
+    """ Printa todos os filmes menos o “The Revenant”.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
+    df = file.open_csv_from_pandas("dados/csv.csv")
     print(template.generate_resposta(df.query("Movie != 'The Revenant'").to_string()))
 
 

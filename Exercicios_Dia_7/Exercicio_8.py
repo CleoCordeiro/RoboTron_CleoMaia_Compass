@@ -6,7 +6,12 @@ from pandas import DataFrame
 
 
 def print_csv(template: Type['Template']) -> None:
-    csv_file: DataFrame = file.open_csv_from_pandas("Dados/CSV.csv")
+    """ Printa o conteúdo do CSV.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
+    csv_file: DataFrame = file.open_csv_from_pandas("dados/csv.csv")
     print(template.generate_resposta(csv_file.to_string()))
 
 

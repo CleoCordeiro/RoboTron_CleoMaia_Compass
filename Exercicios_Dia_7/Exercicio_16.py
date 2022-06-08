@@ -5,6 +5,11 @@ from pandas import DataFrame
 
 
 def menu(template: Type['Template']) -> None:
+    """ Menu de opções do programa.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
     utils.clear()
     banner: str = utils.generate_banner("Exercicio 16")
     options: list = ['Listar todos os nomes dos elementos',
@@ -25,12 +30,22 @@ def menu(template: Type['Template']) -> None:
 
 
 def listar_nome(template: Type['Template']) -> None:
+    """ Lista todos os nomes dos elementos.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
     print(template.generate_resposta(df['Nome'].to_string(index=False)))
     os.system('pause')
     menu(template)
 
 
 def pesquisar_simbolo(template: Type['Template']) -> None:
+    """ Pesquisa um elemento pelo seu símbolo e printa os dados.
+
+    Args:
+        template (Type[&#39;Template&#39;]): _description_
+    """
     simbolo: str = input('Digite o símbolo do elemento: ')
     dados: DataFrame = df.loc[df['Simbolo'] == simbolo]
 
@@ -43,6 +58,11 @@ def pesquisar_simbolo(template: Type['Template']) -> None:
 
 
 def listar_todos(template: Type['Template']) -> None:
+    """ Lista todos os dados de todos os elementos.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
     print(template.generate_resposta(df.to_string(index=+1)))
     os.system('pause')
     menu(template)
@@ -63,7 +83,7 @@ porém mostrando apenas uma propriedade do elemento.Ex: listar todos os nomes do
 B) Listar todos os dados de determinado elemento, buscando através do seu símbolo.
 C) Listar todos os dados de todos os elementos inseridos.'''
     template: Type['Template'] = Template("Exercicio 16", titulo)
-    df = file.open_csv_from_pandas("Dados/TabelaPeriodica.csv")
+    df = file.open_csv_from_pandas("dados/tabela_periodica.csv")
     menu(template)
 
 

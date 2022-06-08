@@ -3,8 +3,8 @@ import os
 import importlib
 
 import utils.utils as utils
-import utils.downloadArquivos as download_arquivos
-import utils.downloadTabela as download_tabela
+import utils.download_arquivos as download_arquivos
+import utils.download_tabela as download_tabela
 from utils.pick import pick
 
 
@@ -39,7 +39,7 @@ def main_menu() -> None:
 def menu_dia5() -> None:
     """Menu dos exercícios do dia 5."""
     banner: str = utils.generate_banner("Exercicios dia 5")+"\n Selecione o exercício:"
-    count_files: int = len(glob.glob1('Exercicios_Dia_5/', "*.py"))
+    count_files: int = len(glob.glob1('exercicios_dia_5/', "*.py"))
     options: list = []
     for i in range(count_files):
         options.append(f"Exercicio {i+1}")
@@ -52,7 +52,7 @@ def menu_dia5() -> None:
     if selected_option == 'Sair':
         exit()
 
-    exercicio = importlib.import_module(f'Exercicios_Dia_5.Exercicio_{index+1}')
+    exercicio = importlib.import_module(f'exercicios_dia_5.exercicio_{index+1}')
     exercicio.start()
     del exercicio
     os.system('pause')
@@ -63,7 +63,7 @@ def menu_dia7() -> None:
     """Menu dos exercícios do dia 7."""
     banner: str = utils.generate_banner("Exercicios dia 7")+"\n Selecione o exercício:"
 
-    count_files: int = len(glob.glob1('Exercicios_Dia_7/', "*.py"))
+    count_files: int = len(glob.glob1('exercicios_dia_7/', "*.py"))
     options: list = []
     for i in range(count_files):
         options.append(f"Exercicio {i+1}")
@@ -74,7 +74,7 @@ def menu_dia7() -> None:
         main_menu()
     if selected_option == 'Sair':
         exit()
-    exercicio = importlib.import_module(f'Exercicios_Dia_7.Exercicio_{index+1}')
+    exercicio = importlib.import_module(f'exercicios_dia_7.exercicio_{index+1}')
     exercicio.start()
     del exercicio
     os.system('pause')

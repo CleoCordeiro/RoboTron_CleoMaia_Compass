@@ -4,7 +4,12 @@ from typing import Type
 
 
 def vencedor(template: Type['Template']) -> None:
-    partidas: dict = file.open_json("Dados/partida.json")
+    """ Printa o nome do time vencedor.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
+    partidas: dict = file.open_json("dados/partida.json")
     for copa in partidas:
         for jogo in partidas[copa]:
             if jogo["placar_mandante"] > jogo["placar_visitante"]:

@@ -2,4 +2,4 @@ pyfiglet
 pandas
 requests
 beautifulsoup4
-pick
+windows-curses

@@ -4,8 +4,13 @@ from typing import Type
 from pandas import DataFrame
 
 
-def atorOscarAnos(template: Type['Template']) -> None:
-    df: DataFrame = file.open_csv_from_pandas("Dados/CSV.csv")
+def ator_oscar_anos(template: Type['Template']) -> None:
+    """ Printa o nomes dos Atores que ganharam o Oscar entre 1991 e 2016.
+
+    Args:
+        template (Type[&#39;Template&#39;]): Objeto do tipo Template.
+    """
+    df: DataFrame = file.open_csv_from_pandas("dados/csv.csv")
     print(template.generate_resposta(df.query("Year == 1991 | Year == 2016")[['Name']].to_string(index=False)))
 
 
@@ -20,7 +25,7 @@ def start() -> None:
     titulo: str = 'Printe somente o nome dos atores que ganharam o Oscar em 1991 e 2016.'
     template: Type['Template'] = Template("Exercicio 12", titulo)
     print(template)
-    atorOscarAnos(template)
+    ator_oscar_anos(template)
 
 
 if __name__ == '__main__':
