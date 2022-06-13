@@ -3,3 +3,7 @@ pandas
 requests
 beautifulsoup4
 windows-curses
+robotframework
+robotframework-browser
+robotframework-requests
+robotframework-faker
