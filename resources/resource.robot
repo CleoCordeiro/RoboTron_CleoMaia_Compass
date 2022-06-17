@@ -16,15 +16,16 @@ Criar Sessao
 
 #Faz uma requisição GET no endpoint passado como parâmetro
 GET Endpoint "${endpoint}"
-    ${response}             GET On Session      serverest               ${endpoint}
+    ${response}             GET On Session       serverest              ${endpoint}    expected_status=any
     Set Global Variable     ${response}
-    Set Global Variable     ${response_body}      ${response.json()}
+    Set Global Variable     ${response_body}     ${response.json()}
+
 
 #Verifica se a resposta da requisição é igual ao valor passado como parâmetro
 Validar Status Code "${statuscode}"
    Should Be True          ${response.status_code} == ${statuscode}
 
-#Verifica se a resposta da requisição apresenta a mensagem passada como parâmetro
-Validar Response "${mensagem}"
-    Should Be True          ${response_body} == ${mensagem}
+#Verifica se a resposta da requisição contém a mensagem esperada
+Validar Response "${parameter}"  "${expected}"
+    Should Be True          ${response_body${parameter}} == ${expected}
 
