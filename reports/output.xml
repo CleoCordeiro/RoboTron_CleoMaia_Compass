@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.4 on win32)" generated="20220617 11:40:26.766" rpa="false" schemaversion="3">
+<suite id="s1" name="Usuarios" source="C:\Users\Cleo\Documents\Python\RoboTron_CleoMaia_Compass\test-case\usuarios.robot">
+<test id="s1-t1" name="Cenario: GET Todos os Usuarios 200" line="15">
+<kw name="Criar Sessao" library="resource">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>${url}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220617 11:40:26.899" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220617 11:40:26.898" endtime="20220617 11:40:26.899"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:26.898" endtime="20220617 11:40:26.899"/>
+</kw>
+<kw name="GET Endpoint &quot;/usuarios&quot;" library="resource" sourcename="GET Endpoint &quot;${endpoint}&quot;">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>${endpoint}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220617 11:40:27.558" level="INFO">GET Request : url=https://serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220617 11:40:27.558" level="INFO">GET Response : url=https://serverest.dev/usuarios 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '66349d6b-a547-495f-8d3d-0b7075a74a5b', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'ed3a0a04961cf2ba6ee704796c9c034a;o=1', 'Date': 'Fri, 17 Jun 2022 14:40:28 GMT', 'Server': 'Google Frontend', 'Content-Length': '2496'} 
+ body={
+    "quantidade": 11,
+    "usuarios": [
+        {
+            "nome": "Raquel Lesch",
+            "email": "Malika35@hotmail.com",
+            "password": "8rNYxNWloJwZsOV",
+            "administrador": "true",
+            "_id": "76Fn8FoAFWymPDl4"
+        },
+        {
+            "nome": "Simon Olson",
+            "email": "Allan.Homenick@gmail.com",
+            "password": "Mmy2VNwlGbim2Cp",
+            "administrador": "false",
+            "_id": "BsOyYgiFHtxtmqpn"
+        },
+        {
+            "nome": "Gordon Leffler PhD",
+            "email": "Dudley.Bernier@yahoo.com",
+            "password": "xzaLuqKbQ3p0uJf",
+            "administrador": "true",
+            "_id": "EEiTTQR7kDOngNCZ"
+        },
+        {
+            "nome": "Luan Gameplays",
+            "email": "luan@gmail.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "LzNcWIndEcMem0MM"
+        },
+        {
+            "nome": "Leah Gulgowski",
+            "email": "Maye.Greenfelder4@hotmail.com",
+            "password": "3UxRQHdlnizdPAu",
+            "administrador": "false",
+            "_id": "WJkdafaN2imV3A5b"
+        },
+        {
+            "nome": "Teresa Ferry",
+            "email": "Ophelia_Thiel93@gmail.com",
+            "password": "dw4ZDp8AAVKQTNg",
+            "administrador": "true",
+            "_id": "ZrqDg0hPkj6EgwZP"
+        },
+        {
+            "nome": "Katrina Powlowski",
+            "email": "Tony_OReilly82@gmail.com",
+            "password": "9O1avhqlMyY1h6P",
+            "administrador": "true",
+            "_id": "b2f14t0svqKuzV0w"
+        },
+        {
+            "nome": "Howard Ward",
+            "email": "Diego59@gmail.com",
+            "password": "ZK3ynjD5irDNotk",
+            "administrador": "true",
+            "_id": "cEoiR3bAhTGy14mU"
+        },
+        {
+            "nome": "Emmett Yost",
+            "email": "Tremayne.Lockman@hotmail.com",
+            "password": "sKrRq4DyBZcr5Do",
+            "administrador": "false",
+            "_id": "cpgUB95GrbS2yW9T"
+        },
+        {
+            "nome": "Ken Buckridge",
+            "email": "Demetrius34@yahoo.com",
+            "password": "yTMzn8qthVEHwFt",
+            "administrador": "false",
+            "_id": "ertitsW3KfSXz01n"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "beltrano@qa.com.br.xyz",
+            "password": "testae",
+            "administrador": "true",
+            "_id": "fB2pVmYF4SskYWxN"
+        }
+    ]
+} 
+ </msg>
+<msg timestamp="20220617 11:40:27.558" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220617 11:40:26.900" endtime="20220617 11:40:27.558"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220617 11:40:27.559" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220617 11:40:27.559" endtime="20220617 11:40:27.559"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>${response.json()}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220617 11:40:27.560" level="INFO">${response_body} = {'quantidade': 11, 'usuarios': [{'nome': 'Raquel Lesch', 'email': 'Malika35@hotmail.com', 'password': '8rNYxNWloJwZsOV', 'administrador': 'true', '_id': '76Fn8FoAFWymPDl4'}, {'nome': 'Simon Olson', 'e...</msg>
+<status status="PASS" starttime="20220617 11:40:27.559" endtime="20220617 11:40:27.560"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:26.899" endtime="20220617 11:40:27.560"/>
+</kw>
+<kw name="Validar Status Code &quot;200&quot;" library="resource" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220617 11:40:27.561" endtime="20220617 11:40:27.563"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:27.561" endtime="20220617 11:40:27.563"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:26.897" endtime="20220617 11:40:27.563"/>
+</test>
+<test id="s1-t2" name="Cenario: GET Usuario por Id Valido" line="21">
+<kw name="Criar Sessao" library="resource">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>${url}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220617 11:40:27.566" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220617 11:40:27.566" endtime="20220617 11:40:27.566"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:27.566" endtime="20220617 11:40:27.567"/>
+</kw>
+<kw name="GET Endpoint &quot;/usuarios/${valid_id}&quot;" library="resource" sourcename="GET Endpoint &quot;${endpoint}&quot;">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>${endpoint}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220617 11:40:28.072" level="INFO">GET Request : url=https://serverest.dev/usuarios/BsOyYgiFHtxtmqpn 
+ path_url=/usuarios/BsOyYgiFHtxtmqpn 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220617 11:40:28.072" level="INFO">GET Response : url=https://serverest.dev/usuarios/BsOyYgiFHtxtmqpn 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '53094db1-f04b-4c19-a627-06f86dfc93c0', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '40830c4f1a924854e925a52bf6f808e5', 'Date': 'Fri, 17 Jun 2022 14:40:28 GMT', 'Server': 'Google Frontend', 'Content-Length': '166'} 
+ body={
+    "nome": "Simon Olson",
+    "email": "Allan.Homenick@gmail.com",
+    "password": "Mmy2VNwlGbim2Cp",
+    "administrador": "false",
+    "_id": "BsOyYgiFHtxtmqpn"
+} 
+ </msg>
+<msg timestamp="20220617 11:40:28.072" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220617 11:40:27.567" endtime="20220617 11:40:28.072"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220617 11:40:28.072" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220617 11:40:28.072" endtime="20220617 11:40:28.072"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>${response.json()}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220617 11:40:28.073" level="INFO">${response_body} = {'nome': 'Simon Olson', 'email': 'Allan.Homenick@gmail.com', 'password': 'Mmy2VNwlGbim2Cp', 'administrador': 'false', '_id': 'BsOyYgiFHtxtmqpn'}</msg>
+<status status="PASS" starttime="20220617 11:40:28.073" endtime="20220617 11:40:28.074"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:27.567" endtime="20220617 11:40:28.074"/>
+</kw>
+<kw name="Validar Status Code &quot;200&quot;" library="resource" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220617 11:40:28.075" endtime="20220617 11:40:28.076"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:28.074" endtime="20220617 11:40:28.076"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:27.565" endtime="20220617 11:40:28.076"/>
+</test>
+<test id="s1-t3" name="Cenario: GET Usuario por Id Invalido" line="28">
+<kw name="Criar Sessao" library="resource">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>${url}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220617 11:40:28.079" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220617 11:40:28.078" endtime="20220617 11:40:28.079"/>
+</kw>
+<status status="PASS" starttime="20220617 11:40:28.078" endtime="20220617 11:40:28.079"/>
+</kw>
+<kw name="GET Endpoint &quot;/usuarios/${invalid_id}&quot;" library="resource" sourcename="GET Endpoint &quot;${endpoint}&quot;">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>${endpoint}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220617 11:40:29.814" level="INFO">GET Request : url=https://serverest.dev/usuarios/NaoExisto 
+ path_url=/usuarios/NaoExisto 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220617 11:40:29.815" level="INFO">GET Response : url=https://serverest.dev/usuarios/NaoExisto 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'd033f8f4-b10b-4d03-846f-7bb367c1aea2', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'ef75964c85e48fc80a079eed9d199278', 'Date': 'Fri, 17 Jun 2022 14:40:30 GMT', 'Server': 'Google Frontend', 'Content-Length': '45'} 
+ body={
+    "message": "Usuário não encontrado"
+} 
+ </msg>
+<msg timestamp="20220617 11:40:29.815" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/usuarios/NaoExisto</msg>
+<status status="FAIL" starttime="20220617 11:40:28.080" endtime="20220617 11:40:29.819"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20220617 11:40:29.819" endtime="20220617 11:40:29.820"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>${response.json()}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20220617 11:40:29.820" endtime="20220617 11:40:29.820"/>
+</kw>
+<status status="FAIL" starttime="20220617 11:40:28.080" endtime="20220617 11:40:29.820"/>
+</kw>
+<kw name="Validar Status Code &quot;400&quot;" library="resource" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<status status="NOT RUN" starttime="20220617 11:40:29.821" endtime="20220617 11:40:29.821"/>
+</kw>
+<status status="FAIL" starttime="20220617 11:40:28.078" endtime="20220617 11:40:29.822">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/usuarios/NaoExisto</status>
+</test>
+<status status="FAIL" starttime="20220617 11:40:26.768" endtime="20220617 11:40:29.824"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="1" skip="0" id="s1" name="Usuarios">Usuarios</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
