@@ -1,266 +1,269 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.4 on win32)" generated="20220617 11:40:26.766" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.4 on win32)" generated="20220619 07:37:06.159" rpa="false" schemaversion="3">
 <suite id="s1" name="Usuarios" source="C:\Users\Cleo\Documents\Python\RoboTron_CleoMaia_Compass\test-case\usuarios.robot">
-<test id="s1-t1" name="Cenario: GET Todos os Usuarios 200" line="15">
-<kw name="Criar Sessao" library="resource">
+<test id="s1-t1" name="Cenario: GET Todos os Usuarios 200" line="42">
+<kw name="Criar Sessao" library="resource" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${url}</arg>
 <arg>verify=true</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220617 11:40:26.899" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20220617 11:40:26.898" endtime="20220617 11:40:26.899"/>
+<msg timestamp="20220619 07:37:06.268" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220619 07:37:06.268" endtime="20220619 07:37:06.269"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:26.898" endtime="20220617 11:40:26.899"/>
+<status status="PASS" starttime="20220619 07:37:06.268" endtime="20220619 07:37:06.269"/>
 </kw>
-<kw name="GET Endpoint &quot;/usuarios&quot;" library="resource" sourcename="GET Endpoint &quot;${endpoint}&quot;">
+<kw name="Dado Que Eu Realize Uma Requisicao Do Tipo Get No Endpoint /usuarios" sourcename="Dado Que Eu Realize Uma Requisicao Do Tipo Get No Endpoint ${endpoint}">
+<kw name="GET Endpoint ${endpoint}" library="resource" sourcename="GET Endpoint ${endpoint}">
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
 <arg>${endpoint}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220617 11:40:27.558" level="INFO">GET Request : url=https://serverest.dev/usuarios 
+<msg timestamp="20220619 07:37:06.767" level="INFO">GET Request : url=https://serverest.dev/usuarios 
  path_url=/usuarios 
  headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220617 11:40:27.558" level="INFO">GET Response : url=https://serverest.dev/usuarios 
+<msg timestamp="20220619 07:37:06.768" level="INFO">GET Response : url=https://serverest.dev/usuarios 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '66349d6b-a547-495f-8d3d-0b7075a74a5b', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'ed3a0a04961cf2ba6ee704796c9c034a;o=1', 'Date': 'Fri, 17 Jun 2022 14:40:28 GMT', 'Server': 'Google Frontend', 'Content-Length': '2496'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '94a26b21-5950-4930-ab0f-d271652059db', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '92a5c26f91add5e84a39d848aae3976f;o=1', 'Date': 'Sun, 19 Jun 2022 10:37:07 GMT', 'Server': 'Google Frontend', 'Content-Length': '253'} 
  body={
-    "quantidade": 11,
+    "quantidade": 1,
     "usuarios": [
         {
-            "nome": "Raquel Lesch",
-            "email": "Malika35@hotmail.com",
-            "password": "8rNYxNWloJwZsOV",
-            "administrador": "true",
-            "_id": "76Fn8FoAFWymPDl4"
-        },
-        {
-            "nome": "Simon Olson",
-            "email": "Allan.Homenick@gmail.com",
-            "password": "Mmy2VNwlGbim2Cp",
-            "administrador": "false",
-            "_id": "BsOyYgiFHtxtmqpn"
-        },
-        {
-            "nome": "Gordon Leffler PhD",
-            "email": "Dudley.Bernier@yahoo.com",
-            "password": "xzaLuqKbQ3p0uJf",
-            "administrador": "true",
-            "_id": "EEiTTQR7kDOngNCZ"
-        },
-        {
-            "nome": "Luan Gameplays",
-            "email": "luan@gmail.com",
-            "password": "1234",
-            "administrador": "true",
-            "_id": "LzNcWIndEcMem0MM"
-        },
-        {
-            "nome": "Leah Gulgowski",
-            "email": "Maye.Greenfelder4@hotmail.com",
-            "password": "3UxRQHdlnizdPAu",
-            "administrador": "false",
-            "_id": "WJkdafaN2imV3A5b"
-        },
-        {
-            "nome": "Teresa Ferry",
-            "email": "Ophelia_Thiel93@gmail.com",
-            "password": "dw4ZDp8AAVKQTNg",
-            "administrador": "true",
-            "_id": "ZrqDg0hPkj6EgwZP"
-        },
-        {
-            "nome": "Katrina Powlowski",
-            "email": "Tony_OReilly82@gmail.com",
-            "password": "9O1avhqlMyY1h6P",
-            "administrador": "true",
-            "_id": "b2f14t0svqKuzV0w"
-        },
-        {
-            "nome": "Howard Ward",
-            "email": "Diego59@gmail.com",
-            "password": "ZK3ynjD5irDNotk",
-            "administrador": "true",
-            "_id": "cEoiR3bAhTGy14mU"
-        },
-        {
-            "nome": "Emmett Yost",
-            "email": "Tremayne.Lockman@hotmail.com",
-            "password": "sKrRq4DyBZcr5Do",
-            "administrador": "false",
-            "_id": "cpgUB95GrbS2yW9T"
-        },
-        {
-            "nome": "Ken Buckridge",
-            "email": "Demetrius34@yahoo.com",
-            "password": "yTMzn8qthVEHwFt",
-            "administrador": "false",
-            "_id": "ertitsW3KfSXz01n"
-        },
-        {
             "nome": "Fulano da Silva",
-            "email": "beltrano@qa.com.br.xyz",
-            "password": "testae",
+            "email": "fulano@qa.com",
+            "password": "teste",
             "administrador": "true",
-            "_id": "fB2pVmYF4SskYWxN"
+            "_id": "0uxuPY0cbmQhpEz1"
         }
     ]
 } 
  </msg>
-<msg timestamp="20220617 11:40:27.558" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220617 11:40:26.900" endtime="20220617 11:40:27.558"/>
+<msg timestamp="20220619 07:37:06.768" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220619 07:37:06.270" endtime="20220619 07:37:06.769"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220617 11:40:27.559" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220617 11:40:27.559" endtime="20220617 11:40:27.559"/>
+<msg timestamp="20220619 07:37:06.771" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220619 07:37:06.769" endtime="20220619 07:37:06.771"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response_body}</arg>
 <arg>${response.json()}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220617 11:40:27.560" level="INFO">${response_body} = {'quantidade': 11, 'usuarios': [{'nome': 'Raquel Lesch', 'email': 'Malika35@hotmail.com', 'password': '8rNYxNWloJwZsOV', 'administrador': 'true', '_id': '76Fn8FoAFWymPDl4'}, {'nome': 'Simon Olson', 'e...</msg>
-<status status="PASS" starttime="20220617 11:40:27.559" endtime="20220617 11:40:27.560"/>
+<msg timestamp="20220619 07:37:06.776" level="INFO">${response_body} = {'quantidade': 1, 'usuarios': [{'nome': 'Fulano da Silva', 'email': 'fulano@qa.com', 'password': 'teste', 'administrador': 'true', '_id': '0uxuPY0cbmQhpEz1'}]}</msg>
+<status status="PASS" starttime="20220619 07:37:06.771" endtime="20220619 07:37:06.777"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:26.899" endtime="20220617 11:40:27.560"/>
+<status status="PASS" starttime="20220619 07:37:06.269" endtime="20220619 07:37:06.777"/>
 </kw>
-<kw name="Validar Status Code &quot;200&quot;" library="resource" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<status status="PASS" starttime="20220619 07:37:06.269" endtime="20220619 07:37:06.777"/>
+</kw>
+<kw name="Então O Status Code Deve Ser Igual A 200" sourcename="Então O Status Code Deve Ser Igual A ${status_code}">
+<kw name="Validar Status Code ${statuscode}" library="resource" sourcename="Validar Status Code ${statuscode}">
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20220617 11:40:27.561" endtime="20220617 11:40:27.563"/>
+<status status="PASS" starttime="20220619 07:37:06.783" endtime="20220619 07:37:06.789"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:27.561" endtime="20220617 11:40:27.563"/>
+<status status="PASS" starttime="20220619 07:37:06.782" endtime="20220619 07:37:06.790"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:26.897" endtime="20220617 11:40:27.563"/>
+<status status="PASS" starttime="20220619 07:37:06.780" endtime="20220619 07:37:06.791"/>
+</kw>
+<kw name="E A Resposta Deve Conter Uma Listagem De Usuarios Com Tamanho Maior Que 0" sourcename="E A Resposta Deve Conter Uma Listagem De Usuarios Com Tamanho Maior Que ${quantidade}">
+<kw name="Validar Quantidade de Usuarios &gt; ${quantidade}" sourcename="Validar Quantidade De Usuarios ${operador} ${quantidade}">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response_body['quantidade']} ${operador} ${quantidade}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220619 07:37:06.795" endtime="20220619 07:37:06.800"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:06.794" endtime="20220619 07:37:06.800"/>
+</kw>
+<kw name="Salvar ID Usuario Valido">
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${usuario_valido}</arg>
+<arg>${response_body['usuarios'][0]['_id']}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20220619 07:37:06.807" level="INFO">${usuario_valido} = 0uxuPY0cbmQhpEz1</msg>
+<status status="PASS" starttime="20220619 07:37:06.802" endtime="20220619 07:37:06.808"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:06.801" endtime="20220619 07:37:06.808"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:06.793" endtime="20220619 07:37:06.809"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:06.267" endtime="20220619 07:37:06.811"/>
 </test>
-<test id="s1-t2" name="Cenario: GET Usuario por Id Valido" line="21">
-<kw name="Criar Sessao" library="resource">
+<test id="s1-t2" name="Cenario: GET Usuario por Id Valido" line="49">
+<kw name="Criar Sessao" library="resource" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${url}</arg>
 <arg>verify=true</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220617 11:40:27.566" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20220617 11:40:27.566" endtime="20220617 11:40:27.566"/>
+<msg timestamp="20220619 07:37:06.821" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220619 07:37:06.820" endtime="20220619 07:37:06.822"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:27.566" endtime="20220617 11:40:27.567"/>
+<status status="PASS" starttime="20220619 07:37:06.820" endtime="20220619 07:37:06.823"/>
 </kw>
-<kw name="GET Endpoint &quot;/usuarios/${valid_id}&quot;" library="resource" sourcename="GET Endpoint &quot;${endpoint}&quot;">
+<kw name="Dado Que Eu Realize Uma Requisicao Do Tipo Get No Endpoint /usuarios/${usuario_valido}" sourcename="Dado Que Eu Realize Uma Requisicao Do Tipo Get No Endpoint ${endpoint}">
+<kw name="GET Endpoint ${endpoint}" library="resource" sourcename="GET Endpoint ${endpoint}">
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
 <arg>${endpoint}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220617 11:40:28.072" level="INFO">GET Request : url=https://serverest.dev/usuarios/BsOyYgiFHtxtmqpn 
- path_url=/usuarios/BsOyYgiFHtxtmqpn 
+<msg timestamp="20220619 07:37:07.322" level="INFO">GET Request : url=https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1 
+ path_url=/usuarios/0uxuPY0cbmQhpEz1 
  headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220617 11:40:28.072" level="INFO">GET Response : url=https://serverest.dev/usuarios/BsOyYgiFHtxtmqpn 
+<msg timestamp="20220619 07:37:07.322" level="INFO">GET Response : url=https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '53094db1-f04b-4c19-a627-06f86dfc93c0', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '40830c4f1a924854e925a52bf6f808e5', 'Date': 'Fri, 17 Jun 2022 14:40:28 GMT', 'Server': 'Google Frontend', 'Content-Length': '166'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'aaa58c0f-2f53-43f1-9936-2912f1596533', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '0134c2dfca7ec64006c3e3f4ab0ab0cc', 'Date': 'Sun, 19 Jun 2022 10:37:08 GMT', 'Server': 'Google Frontend', 'Content-Length': '148'} 
  body={
-    "nome": "Simon Olson",
-    "email": "Allan.Homenick@gmail.com",
-    "password": "Mmy2VNwlGbim2Cp",
-    "administrador": "false",
-    "_id": "BsOyYgiFHtxtmqpn"
+    "nome": "Fulano da Silva",
+    "email": "fulano@qa.com",
+    "password": "teste",
+    "administrador": "true",
+    "_id": "0uxuPY0cbmQhpEz1"
 } 
  </msg>
-<msg timestamp="20220617 11:40:28.072" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220617 11:40:27.567" endtime="20220617 11:40:28.072"/>
+<msg timestamp="20220619 07:37:07.322" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220619 07:37:06.826" endtime="20220619 07:37:07.323"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220617 11:40:28.072" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220617 11:40:28.072" endtime="20220617 11:40:28.072"/>
+<msg timestamp="20220619 07:37:07.324" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220619 07:37:07.323" endtime="20220619 07:37:07.324"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response_body}</arg>
 <arg>${response.json()}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220617 11:40:28.073" level="INFO">${response_body} = {'nome': 'Simon Olson', 'email': 'Allan.Homenick@gmail.com', 'password': 'Mmy2VNwlGbim2Cp', 'administrador': 'false', '_id': 'BsOyYgiFHtxtmqpn'}</msg>
-<status status="PASS" starttime="20220617 11:40:28.073" endtime="20220617 11:40:28.074"/>
+<msg timestamp="20220619 07:37:07.328" level="INFO">${response_body} = {'nome': 'Fulano da Silva', 'email': 'fulano@qa.com', 'password': 'teste', 'administrador': 'true', '_id': '0uxuPY0cbmQhpEz1'}</msg>
+<status status="PASS" starttime="20220619 07:37:07.325" endtime="20220619 07:37:07.328"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:27.567" endtime="20220617 11:40:28.074"/>
+<status status="PASS" starttime="20220619 07:37:06.825" endtime="20220619 07:37:07.328"/>
 </kw>
-<kw name="Validar Status Code &quot;200&quot;" library="resource" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<status status="PASS" starttime="20220619 07:37:06.824" endtime="20220619 07:37:07.329"/>
+</kw>
+<kw name="Então O Status Code Deve Ser Igual A 200" sourcename="Então O Status Code Deve Ser Igual A ${status_code}">
+<kw name="Validar Status Code ${statuscode}" library="resource" sourcename="Validar Status Code ${statuscode}">
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20220617 11:40:28.075" endtime="20220617 11:40:28.076"/>
+<status status="PASS" starttime="20220619 07:37:07.333" endtime="20220619 07:37:07.337"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:28.074" endtime="20220617 11:40:28.076"/>
+<status status="PASS" starttime="20220619 07:37:07.332" endtime="20220619 07:37:07.337"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:27.565" endtime="20220617 11:40:28.076"/>
+<status status="PASS" starttime="20220619 07:37:07.331" endtime="20220619 07:37:07.338"/>
+</kw>
+<kw name="E A Resposta Deve Conter O Usuario Com O ID Igual A ${usuario_valido}" sourcename="E A Resposta Deve Conter O Usuario Com O ID Igual A ${id}">
+<kw name="Validar Usuario ${id}" sourcename="Validar Usuario ${id_usuario}">
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response_body['_id']}</arg>
+<arg>${id_usuario}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220619 07:37:07.342" endtime="20220619 07:37:07.344"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:07.341" endtime="20220619 07:37:07.345"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:07.339" endtime="20220619 07:37:07.345"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:06.816" endtime="20220619 07:37:07.347"/>
 </test>
-<test id="s1-t3" name="Cenario: GET Usuario por Id Invalido" line="28">
-<kw name="Criar Sessao" library="resource">
+<test id="s1-t3" name="Cenario: GET Usuario por Id Invalido" line="56">
+<kw name="Criar Sessao" library="resource" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${url}</arg>
 <arg>verify=true</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220617 11:40:28.079" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20220617 11:40:28.078" endtime="20220617 11:40:28.079"/>
+<msg timestamp="20220619 07:37:07.356" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220619 07:37:07.355" endtime="20220619 07:37:07.357"/>
 </kw>
-<status status="PASS" starttime="20220617 11:40:28.078" endtime="20220617 11:40:28.079"/>
+<status status="PASS" starttime="20220619 07:37:07.354" endtime="20220619 07:37:07.357"/>
 </kw>
-<kw name="GET Endpoint &quot;/usuarios/${invalid_id}&quot;" library="resource" sourcename="GET Endpoint &quot;${endpoint}&quot;">
+<kw name="Dado Que Eu Realize Uma Requisicao Do Tipo Get No Endpoint /usuarios/${usuario_invalido}" sourcename="Dado Que Eu Realize Uma Requisicao Do Tipo Get No Endpoint ${endpoint}">
+<kw name="GET Endpoint ${endpoint}" library="resource" sourcename="GET Endpoint ${endpoint}">
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
 <arg>${endpoint}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220617 11:40:29.814" level="INFO">GET Request : url=https://serverest.dev/usuarios/NaoExisto 
+<msg timestamp="20220619 07:37:07.872" level="INFO">GET Request : url=https://serverest.dev/usuarios/NaoExisto 
  path_url=/usuarios/NaoExisto 
  headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220617 11:40:29.815" level="INFO">GET Response : url=https://serverest.dev/usuarios/NaoExisto 
+<msg timestamp="20220619 07:37:07.873" level="INFO">GET Response : url=https://serverest.dev/usuarios/NaoExisto 
  status=400, reason=Bad Request 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'd033f8f4-b10b-4d03-846f-7bb367c1aea2', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'ef75964c85e48fc80a079eed9d199278', 'Date': 'Fri, 17 Jun 2022 14:40:30 GMT', 'Server': 'Google Frontend', 'Content-Length': '45'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '29b18ef7-579e-4ea0-b5f0-9969adf6c505', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '2b41a1c53a1251399ec638eacfb3368a', 'Date': 'Sun, 19 Jun 2022 10:37:09 GMT', 'Server': 'Google Frontend', 'Content-Length': '45'} 
  body={
     "message": "Usuário não encontrado"
 } 
  </msg>
-<msg timestamp="20220617 11:40:29.815" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/usuarios/NaoExisto</msg>
-<status status="FAIL" starttime="20220617 11:40:28.080" endtime="20220617 11:40:29.819"/>
+<msg timestamp="20220619 07:37:07.873" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220619 07:37:07.362" endtime="20220619 07:37:07.873"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20220617 11:40:29.819" endtime="20220617 11:40:29.820"/>
+<msg timestamp="20220619 07:37:07.875" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220619 07:37:07.874" endtime="20220619 07:37:07.875"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response_body}</arg>
 <arg>${response.json()}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20220617 11:40:29.820" endtime="20220617 11:40:29.820"/>
+<msg timestamp="20220619 07:37:07.878" level="INFO">${response_body} = {'message': 'Usuário não encontrado'}</msg>
+<status status="PASS" starttime="20220619 07:37:07.875" endtime="20220619 07:37:07.878"/>
 </kw>
-<status status="FAIL" starttime="20220617 11:40:28.080" endtime="20220617 11:40:29.820"/>
+<status status="PASS" starttime="20220619 07:37:07.360" endtime="20220619 07:37:07.879"/>
 </kw>
-<kw name="Validar Status Code &quot;400&quot;" library="resource" sourcename="Validar Status Code &quot;${statuscode}&quot;">
-<status status="NOT RUN" starttime="20220617 11:40:29.821" endtime="20220617 11:40:29.821"/>
+<status status="PASS" starttime="20220619 07:37:07.359" endtime="20220619 07:37:07.879"/>
 </kw>
-<status status="FAIL" starttime="20220617 11:40:28.078" endtime="20220617 11:40:29.822">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/usuarios/NaoExisto</status>
+<kw name="Então O Status Code Deve Ser Igual A 400" sourcename="Então O Status Code Deve Ser Igual A ${status_code}">
+<kw name="Validar Status Code ${statuscode}" library="resource" sourcename="Validar Status Code ${statuscode}">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220619 07:37:07.884" endtime="20220619 07:37:07.888"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:07.882" endtime="20220619 07:37:07.889"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:07.880" endtime="20220619 07:37:07.889"/>
+</kw>
+<kw name="E A Resposta Deve Conter A Mensagem Usuário não encontrado" sourcename="E A Resposta Deve Conter A Mensagem ${mensagem}">
+<kw name="Validar Mensagem ${mensagem}" library="resource" sourcename="Validar Mensagem ${esperado}">
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response_body['message']}</arg>
+<arg>${esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220619 07:37:07.892" endtime="20220619 07:37:07.895"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:07.891" endtime="20220619 07:37:07.895"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:07.890" endtime="20220619 07:37:07.896"/>
+</kw>
+<status status="PASS" starttime="20220619 07:37:07.352" endtime="20220619 07:37:07.899"/>
 </test>
-<status status="FAIL" starttime="20220617 11:40:26.768" endtime="20220617 11:40:29.824"/>
+<status status="PASS" starttime="20220619 07:37:06.160" endtime="20220619 07:37:07.903"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="1" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="1" skip="0" id="s1" name="Usuarios">Usuarios</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Usuarios">Usuarios</stat>
 </suite>
 </statistics>
 <errors>
