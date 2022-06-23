@@ -1,7 +1,7 @@
 #Sessão para configuração, documentação, importação de aquivos e librarys
 *** Settings ***
 Documentation  Arquivo De Requisições Do Tipo POST DA API Do EndPoint Usuarios
-Resource      usuarios_keywords.robot
+Resource        ../../resources/resource.resource
 Test Setup    Criar Sessao
 
 #Sessão para criação de cenários de teste
@@ -22,7 +22,7 @@ Cenario: Cadastrar Um Usuario Nao Administrador Com Sucesso
     Validar Mensagem "Cadastro realizado com sucesso"
 
 #Cenario de realização de cadastro com email já cadastrado
-Cenario: Cadastrar Um Usuario Com Email Ja Cadastrado
+Cenario: Tentativa de Cadastrar Um Usuario Com Email Ja Cadastrado
     [Tags]  POST    Cadastrar    Cadastrar_Usuario_Email_Ja_Utilizado
     ${usuario} =    Gerar Usuario Com Email Ja Cadastrado
     POST Endpoint "/usuarios" Com Body "${usuario}"
@@ -31,28 +31,28 @@ Cenario: Cadastrar Um Usuario Com Email Ja Cadastrado
 
 
 #Cenarios de realização de cadastros faltando dados
-Cenario: Cadastrar Um Usuario Sem Nome
+Cenario: Tentativa de Cadastrar Um Usuario Sem Nome
     [Tags]  POST    Cadastrar    Cadastrar_Usuario_Sem_Nome
     ${usuario} =    Gerar Usuario Sem O Campo "nome"
     POST Endpoint "/usuarios" Com Body "${usuario}"
     Validar Status Code "400"
     Validar "nome" Com O Valor "nome é obrigatório"
 
-Cenario: Cadastrar Um Usuario Sem Email
+Cenario: Tentativa de Cadastrar Um Usuario Sem Email
     [Tags]  POST    Cadastrar    Cadastrar_Usuario_Sem_Email
     ${usuario} =    Gerar Usuario Sem O Campo "email"
     POST Endpoint "/usuarios" Com Body "${usuario}"
     Validar Status Code "400"
     Validar "email" Com O Valor "email é obrigatório"
 
-Cenario: Cadastrar Um Usuario Sem Senha
+Cenario: Tentativa de Cadastrar Um Usuario Sem Senha
     [Tags]  POST    Cadastrar    Cadastrar_Usuario_Sem_Senha
     ${usuario} =    Gerar Usuario Sem O Campo "password"
     POST Endpoint "/usuarios" Com Body "${usuario}"
     Validar Status Code "400"
     Validar "password" Com O Valor "password é obrigatório"
 
-Cenario: Cadastrar Um Usuario Sem Administrador
+Cenario: Tentativa de Cadastrar Um Usuario Sem Administrador
     [Tags]  POST    Cadastrar    Cadastrar_Usuario_Sem_Administrador
     ${usuario} =    Gerar Usuario Sem O Campo "administrador"
     POST Endpoint "/usuarios" Com Body "${usuario}"

@@ -1,7 +1,7 @@
 #Sessão para configuração, documentação, importação de aquivos e librarys
 *** Settings ***
 Documentation  Arquivo De Requisições Do Tipo PUT DA API Do EndPoint Usuarios
-Resource      usuarios_keywords.robot
+Resource        ../../resources/resource.resource
 Test Setup    Criar Sessao
 
 #Sessão para criação de cenários de teste
@@ -16,7 +16,7 @@ Cenerario: Atualizar Dados de Um Usuario Nao Cadastrado
 
 Cenario: Atualizar Nome Do Usuario
     [Tags]  PUT    Atualizar    Atualizar_Nome_Usuario
-    ${usuario} =    GET Usuario Valido
+    ${usuario} =    GET Usuario Valido Administrador "false"
     ${usuario} =    Alterar "nome" Do Usuario "${usuario}"
     PUT Endpoint "/usuarios/${usuario['_id']}" Com Body "${usuario}"
     Validar Status Code "200"
@@ -24,7 +24,7 @@ Cenario: Atualizar Nome Do Usuario
 
 Cenario: Atualizar Email Do Usuario
     [Tags]  PUT    Atualizar    Atualizar_Email_Usuario
-    ${usuario} =    GET Usuario Valido
+    ${usuario} =    GET Usuario Valido Administrador "false"
     ${usuario} =    Alterar "email" Do Usuario "${usuario}"
     PUT Endpoint "/usuarios/${usuario['_id']}" Com Body "${usuario}"
     Validar Status Code "200"
@@ -32,7 +32,7 @@ Cenario: Atualizar Email Do Usuario
 
 Cenario: Atualizar Senha Do Usuario
     [Tags]  PUT    Atualizar    Atualizar_Senha_Usuario
-    ${usuario} =    GET Usuario Valido
+    ${usuario} =    GET Usuario Valido Administrador "false"
     ${usuario} =    Alterar "password" Do Usuario "${usuario}"
     PUT Endpoint "/usuarios/${usuario['_id']}" Com Body "${usuario}"
     Validar Status Code "200"
@@ -40,7 +40,7 @@ Cenario: Atualizar Senha Do Usuario
 
 Cenario: Atualizar Privelio Do Usuario
     [Tags]  PUT    Atualizar    Atualizar_Privelio_Usuario
-    ${usuario} =    GET Usuario Valido
+    ${usuario} =    GET Usuario Valido Administrador "false"
     ${usuario} =    Alterar Privilegio do Usuario "${usuario}"
     PUT Endpoint "/usuarios/${usuario['_id']}" Com Body "${usuario}"
     Validar Status Code "200"

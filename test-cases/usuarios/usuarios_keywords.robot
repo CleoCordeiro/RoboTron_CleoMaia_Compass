@@ -1,10 +1,6 @@
 #Sessão para configuração, documentação, importação de aquivos e librarys
 *** Settings ***
 Documentation  Arquivo Que Contem As Keywords Do EndPoint usuarios
-Resource    ../resources/resource.resource
-Library     Collections
-Library     FakerLibrary
-Library     String
 
 
 #Sessão para configuração de variáveis
@@ -14,10 +10,14 @@ ${usuario_nao_cadastrado}    NaoExisto
 
 #Sessão para criação de keywords
 *** Keywords ***
-GET Usuario Valido
-    GET Endpoint "/usuarios"
-    Validar Quantidade de Usuarios > 0
-    [Return]    ${response_body['usuarios'][0]}
+GET Usuario Valido Administrador "${administrador}"
+    ${usuario} =    Gerar Dados Do Novo Usuario Administrador "${administrador}"
+    POST Endpoint "/usuarios" Com Body "${usuario}"
+    Validar Status Code "201"
+    Validar Mensagem "Cadastro realizado com sucesso"
+    Should Not Be Empty     ${response_body['_id']}
+    Set To Dictionary          ${usuario}          _id=${response_body['_id']}
+    [Return]   ${usuario}
 
 #Criação de um usuário usando a biblioteca Faker
 Gerar Dados Do Novo Usuario Administrador "${administrador}"
@@ -29,7 +29,7 @@ Gerar Dados Do Novo Usuario Administrador "${administrador}"
 
 Gerar Usuario Com Email Ja Cadastrado
     ${usuario} =    Gerar Dados Do Novo Usuario Administrador "false"
-    ${usuario_ja_cadastrado}=   GET Usuario Valido
+    ${usuario_ja_cadastrado}=   GET Usuario Valido Administrador "false"
     Set To Dictionary                ${usuario}                email=${usuario_ja_cadastrado['email']}
     [Return]                         ${usuario}
 
@@ -50,9 +50,6 @@ Alterar Privilegio do Usuario "${usuario}"
     ${administrador} =               Convert To Lower Case     ${administrador}
     set to dictionary                ${usuario}                administrador=${administrador}
     [Return]                         ${usuario}
-
-Validar Quantidade De Usuarios ${operador} ${quantidade}
-    Should Be True     ${response_body['quantidade']} ${operador} ${quantidade}
 
 Validar Usuario "${id_usuario_cadastrado}"
     Should Be Equal    ${response_body['_id']}    ${id_usuario_cadastrado}

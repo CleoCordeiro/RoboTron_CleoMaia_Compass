@@ -1,14 +1,14 @@
 #Sessão para configuração, documentação, importação de aquivos e librarys
 *** Settings ***
 Documentation  Arquivo De Requisições Do Tipo DELETE DA API Do EndPoint Usuarios
-Resource        usuarios_keywords.robot
+Resource        ../base.robot
 Test Setup      Criar Sessao
 
 #Sessão para criação de cenários de teste
 *** Test Cases ***
 Cenario: Deletar Usuario Cadastrado
     [Tags]  DELETE    Deletar_Usuario_Cadastrado
-    ${usuario} =    GET Usuario Valido
+    ${usuario} =    GET Usuario Valido Administrador "false"
     DELETE Endpoint "/usuarios/${usuario['_id']}"
     Validar Status Code "200"
     Validar Mensagem "Registro excluído com sucesso"

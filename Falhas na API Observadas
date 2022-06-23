@@ -1,0 +1,9 @@
+O Endpoint Login retorna o status code "401" que não está documentado,
+no caso de enviar um email ou senha inválido.
+
+No EndPoint Produtos  Listar carrinhos cadastrados a documentação,
+mostra que o retorno seria um json com uma chave quantidade,  e uma lista
+de usuarios quando na verdade retorna uma chave quantidade e uma lista de produtos.
+
+Cadastrar produto com preço 0 ou negativo status=400
+${response_body} = {'preco': 'preco deve ser um número positivo'}
