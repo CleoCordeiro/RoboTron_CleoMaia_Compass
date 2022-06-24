@@ -1,9 +1,14 @@
 #Sessão para configuração, documentação, importação de aquivos e librarys
 *** Settings ***
 Documentation    Arquivo base para requisições HTTP em APIs Rest
-Resource        ../test-cases/usuarios/usuarios_keywords.robot
-Resource        ../test-cases/login/login_keywords.robot
-Resource        ../test-cases/produtos/produtos_keywords.robot
+Resource        ../test-cases/01_login/login_keywords.robot
+Resource        ../test-cases/02_usuarios/usuarios_keywords.robot
+Resource        ../test-cases/03_produtos/produtos_keywords.robot
+Resource        ../test-cases/04_carrinhos/carrinhos_keywords.robot
+Resource        GET.resource
+Resource        POST.resource
+Resource        PUT.resource
+Resource        DELETE.resource
 Library         Collections
 Library         FakerLibrary
 Library         String   
@@ -29,40 +34,6 @@ Importar JSON
     ${data}            Evaluate                json.loads(r'''${arquivio}''')          json
     [Return]           ${data}
 
-#Faz uma requisição GET no endpoint passado como parâmetro
-GET Endpoint "${endpoint}"
-    ${response}          GET On Session      serverest             ${endpoint}    expected_status=any
-    Set Test Variable    ${response}
-    Set Test Variable    ${response_body}    ${response.json()}
-
-POST Endpoint "${endpoint}" Com Body "${body}"
-    ${response}          POST On Session     serverest             ${endpoint}    data=${body}    expected_status=any
-    Set Test Variable    ${response}
-    Set Test Variable    ${response_body}    ${response.json()}
-
-POST Autenticado EndPoint "${endpoint}" Com Body "${body}" Headers "${headers}" 
-    ${response}          POST On Session       serverest       ${endpoint}    data=${body}    expected_status=any       headers=${headers}
-    Set Test Variable    ${response}
-    Set Test Variable    ${response_body}      ${response.json()}
-
-POST EndPoint "${endpoint}" Com Body "${body}" Com Token Invalido
-    &{header}=           Create Dictionary      Authorization=Token Invalido
-
-    ${response}          POST On Session        serverest       ${endpoint}    data=${body}    expected_status=any       headers=${header}
-    Set Test Variable    ${response}
-    Set Test Variable    ${response_body}       ${response.json()}
-
-PUT Endpoint "${endpoint}" Com Body "${body}"
-    Run keyword if            '_id' in ${body}    Remove From Dictionary       ${body}        _id
-    ${response}               PUT On Session      serverest                    ${endpoint}    data=${body}    expected_status=any    
-    Set Test Variable         ${response}
-    Set Test Variable         ${response_body}    ${response.json()}
-
-DELETE Endpoint "${endpoint}"
-    ${response}          DELETE On Session    serverest             ${endpoint}    expected_status=any    
-    Set Test Variable    ${response}
-    Set Test Variable    ${response_body}     ${response.json()}
-
 #Verifica se a resposta da requisição é igual ao valor passado como parâmetro
 Validar Status Code "${statuscode}"
     Should Be True    ${response.status_code} == ${statuscode}
@@ -76,3 +47,6 @@ Validar Quantidade De ${item} ${operador} ${quantidade}
 
 Validar Se A Key Nao Esta Vazia "${key}"
     Should Not Be Empty    ${response_body["${key}"]}
+
+Modificar Headers
+    Set to Dictionary    ${headers}     Content-Type=application/json 

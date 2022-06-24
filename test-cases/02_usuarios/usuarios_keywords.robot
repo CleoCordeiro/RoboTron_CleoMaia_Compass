@@ -10,7 +10,12 @@ ${usuario_nao_cadastrado}    NaoExisto
 
 #Sessão para criação de keywords
 *** Keywords ***
-GET Usuario Valido Administrador "${administrador}"
+GET Usuario Por ID "${_id}"
+    GET Endpoint "/usuarios/${_id}"
+    Validar Status Code "200"
+    [Return]    ${response_body}
+
+Cadastrar Novo Usuario Administrador "${administrador}"
     ${usuario} =    Gerar Dados Do Novo Usuario Administrador "${administrador}"
     POST Endpoint "/usuarios" Com Body "${usuario}"
     Validar Status Code "201"
@@ -29,7 +34,7 @@ Gerar Dados Do Novo Usuario Administrador "${administrador}"
 
 Gerar Usuario Com Email Ja Cadastrado
     ${usuario} =    Gerar Dados Do Novo Usuario Administrador "false"
-    ${usuario_ja_cadastrado}=   GET Usuario Valido Administrador "false"
+    ${usuario_ja_cadastrado}=   Cadastrar Novo Usuario Administrador "false"
     Set To Dictionary                ${usuario}                email=${usuario_ja_cadastrado['email']}
     [Return]                         ${usuario}
 
