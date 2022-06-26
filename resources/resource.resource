@@ -27,16 +27,9 @@ ${url}    http://localhost:3000/
 Criar Sessao
     Create Session    serverest    ${url}    verify=true    
 
-#Faz a importação de um arquivo .json e retorna um JSON Dict'
-Importar JSON
-    [Arguments]        ${nome_arquivo} 
-    ${arquivio}        GET File                ${EXECDIR}/resources/${nome_arquivo}
-    ${data}            Evaluate                json.loads(r'''${arquivio}''')          json
-    [Return]           ${data}
-
 #Verifica se a resposta da requisição é igual ao valor passado como parâmetro
 Validar Status Code "${statuscode}"
-    Should Be True    ${response.status_code} == ${statuscode}
+    Should Be True     ${response.status_code} == ${statuscode}
 
 #Verifica se a resposta da requisição é igual ao valor passado como parâmetro
 Validar Mensagem "${mensagem}"

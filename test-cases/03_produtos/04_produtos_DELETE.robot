@@ -9,7 +9,7 @@ Test Setup      Criar Sessao
 ##################################### Cenario Feliz #####################################
 Cenario: Deletar Produto Cadastrado
     [Tags]      DELETE     Produtos       DELETE_Produtos     Deletar_Produto_Cadastrado
-    ${produto} =      Pegar Produto Cadastrado
+    ${produto}=   Cadastar Novo Produto
     Logar E Salvar Token Como Administrador "true"
     DELETE Autenticado EndPoint "/produtos/${produto['_id']}" Headers "${headers}"
     Validar Status Code "200"
@@ -25,14 +25,14 @@ Cenario: Tentar Deletar Produto Não Cadastrado
 
 Cenario: Tentar Deletar Produto Cadastrado Sem Autenticacao
     [Tags]      DELETE     Produtos       DELETE_Produtos     Deletar_Produto_Sem_Autenticacao
-    ${produto} =      Pegar Produto Cadastrado
+    ${produto}=   Cadastar Novo Produto
     DELETE Endpoint "/produtos/${produto['_id']}"
     Validar Status Code "401"
     Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
 Cenario: Tentar Deletar Produto Cadastrado Com Autenticacao De Nao Administrador
     [Tags]      DELETE     Produtos       DELETE_Produtos     Deletar_Produto_Nao_Administrador
-    ${produto} =      Pegar Produto Cadastrado
+    ${produto}=   Cadastar Novo Produto
     Logar E Salvar Token Como Administrador "false"
     DELETE Autenticado EndPoint "/produtos/${produto['_id']}" Headers "${headers}"
     Validar Status Code "403"

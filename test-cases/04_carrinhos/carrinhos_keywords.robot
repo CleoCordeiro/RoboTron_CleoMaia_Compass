@@ -23,7 +23,7 @@ Gerar Carrinho Valido
     ${produtos} =  Lista De Todos Produtos
     Set Test Variable              ${lista_de_produtos}            ${produtos['produtos']}
     ${quantidade_de_produtos} =    Get length                      ${lista_de_produtos}
-    ${quantidade_aleatoria}        FakerLibrary.Random Int         min=0   max=${quantidade_de_produtos-1}
+    ${quantidade_aleatoria}        FakerLibrary.Random Int         min=1   max=10
     @{nova_lista_produtos}         Create List
     ${carrinho}=	               Create Dictionary
     FOR    ${i}  IN RANGE          ${quantidade_aleatoria}

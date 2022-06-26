@@ -28,6 +28,8 @@ Cadastrar Novo Usuario Administrador "${administrador}"
 Gerar Dados Do Novo Usuario Administrador "${administrador}"
     ${nome}                          FakerLibrary.Name
     ${email}                         FakerLibrary.Email
+    ${word}                          FakerLibrary.Word
+    ${email}                         Catenate                 SEPARATOR=      ${word}           ${email}      
     ${senha}                         FakerLibrary.Password
     &{usuario}                       Create Dictionary        nome=${nome}    email=${email}    password=${senha}    administrador=${administrador}
     [Return]                         ${usuario}

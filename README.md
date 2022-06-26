@@ -1,9 +1,9 @@
-# Challagen Sprint 4 <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+# Challagen Sprint 4 <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/CleoCordeiro/Asserts/main/Asserts/robot-framework.svg" />
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
 ### Esse repositório foi criado para realização da challange do sprint 5.
 
-<img src="assets/lets-start.jpg" alt="">
+<img src="https://raw.githubusercontent.com/CleoCordeiro/Asserts/main/Asserts/dacing.gif" alt="">
 <!-- ### Ele conte duas listas de exercícios desenvolvidos em python:
 
 

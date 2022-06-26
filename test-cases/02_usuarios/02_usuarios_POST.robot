@@ -58,4 +58,3 @@ Cenario: Tentativa de Cadastrar Um Usuario Sem Administrador
     POST Endpoint "/usuarios" Com Body "${usuario}"
     Validar Status Code "400"
     Validar "administrador" Com O Valor "administrador é obrigatório"
-

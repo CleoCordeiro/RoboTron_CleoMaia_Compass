@@ -10,7 +10,7 @@ Test Setup      Criar Sessao
 Cenario: Atualizar Produto Não Cadastrado
   
     [Tags]      PUT     Produtos       PUT_Produtos    Atualizar_Produto_NAO_CADASTRADO
-    ${produto} =      Pegar Produto Nao Cadastrado
+    ${produto} =      Gerar Novo Produto
     Logar E Salvar Token Como Administrador "true"
     PUT Autenticado EndPoint "/produtos/NaoExisto" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "201"

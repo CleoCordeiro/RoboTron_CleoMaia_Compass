@@ -5,12 +5,14 @@ Documentation  Arquivo Que Contem As Keywords Do EndPoint produtos
 #Sessão para criação de keywords
 *** Keywords ***
 Cadastar Novo Produto
-    ${produto} =    Pegar Produto Nao Cadastrado
+    ${produto} =    Gerar Novo Produto
     Logar E Salvar Token Como Administrador "true"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Mensagem "Cadastro realizado com sucesso"
     Validar Status Code "201"
     Validar Se A Key Nao Esta Vazia "_id"
+    Set to Dictionary   ${produto}            _id=${response_body['_id']}
+    [Return]            ${produto}
 
 Lista De Todos Produtos
     GET Endpoint "/produtos"
@@ -25,17 +27,25 @@ Pegar Produto Cadastrado
    Set Test Variable         ${produto}      ${response_body['produtos'][-1]}
    [Return]                  ${produto}
 
-Pegar Produto Nao Cadastrado
-    ${lista_de_produtos} =     Lista De Todos Produtos
-    ${produtos} =       Importar JSON  produtos.json
-    ${quantidade_de_itens} =   Get Length       ${produtos['produtos']}
-    FOR    ${i}    IN RANGE    ${quantidade_de_itens}
-        IF  """${produtos['produtos'][${i}]['nome']}""" not in """${lista_de_produtos['produtos']}"""
-            Set Test Variable         ${produto}      ${produtos['produtos'][${i}]}
-            BREAK
-        END
-    END
-    [Return]         ${produto}
+Gerar Novo Produto
+    ${nome} =                FakerLibrary.Text              max_nb_chars=30
+    ${descricao} =           FakerLibrary.Text              max_nb_chars=100
+    ${preco} =               FakerLibrary.Random Int        min=100             max=4000
+    ${quantidade} =          FakerLibrary.Random Int        min=300             max=1000
+    &{produto} =             Create Dictionary              nome=${nome}        descricao=${descricao}      preco=${preco}      quantidade=${quantidade}
+    [Return]                 ${produto}
+
+# Pegar Produto Nao Cadastrado
+#     ${lista_de_produtos} =     Lista De Todos Produtos
+#     ${produtos} =       Importar JSON  produtos.json
+#     ${quantidade_de_itens} =   Get Length       ${produtos['produtos']}
+#     FOR    ${i}    IN RANGE    ${quantidade_de_itens}
+#         IF  """${produtos['produtos'][${i}]['nome']}""" not in """${lista_de_produtos['produtos']}"""
+#             Set Test Variable         ${produto}      ${produtos['produtos'][${i}]}
+#             BREAK
+#         END
+#     END
+#     [Return]         ${produto}
 
 Pegar Produto Do JSON Sem O Campo "${parametro}"
     ${produto} =                     Pegar Produto Cadastrado

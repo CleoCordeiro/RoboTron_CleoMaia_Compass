@@ -10,7 +10,7 @@ Test Setup      Criar Sessao
 ##################################### Cenario Feliz #####################################
 Cenario: Cadastrar Produto Valido
     [Tags]      POST        Cadastrar_Produto      Cadastar_Produto_Valido
-    ${produto} =    Pegar Produto Nao Cadastrado
+    ${produto} =    Gerar Novo Produto
     Logar E Salvar Token Como Administrador "true"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Mensagem "Cadastro realizado com sucesso"
@@ -19,14 +19,10 @@ Cenario: Cadastrar Produto Valido
 
 Cenario: Cadastrar 20 Produtos    
     [Tags]      POST     Produtos       POST_Produtos      Cadastar_20_Produtos
-   ${produtos} =       Importar JSON  produtos.json
-   ${quantidade_json} =  Get Length  ${produtos['produtos']}
-   ${quantidade_ja_cadastrada} =     Quantidade De Produtos
    Logar E Salvar Token Como Administrador "true"
    FOR    ${i}    IN RANGE   20
-       IF  ${quantidade_ja_cadastrada}+${i} >= ${quantidade_json}    Log to Console    Não Existem Mais Produtos Para Cadastrar
-       Exit For Loop IF  ${quantidade_ja_cadastrada}+${i} >= ${quantidade_json}
-       POST Autenticado EndPoint "/produtos" Com Body "${produtos['produtos'][${quantidade_ja_cadastrada}+${i}]}" Headers "${headers}"
+       ${produto} =    Gerar Novo Produto
+       POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
        Validar Mensagem "Cadastro realizado com sucesso"
        Validar Status Code "201"
        Validar Se A Key Nao Esta Vazia "_id"
@@ -36,7 +32,7 @@ Cenario: Cadastrar 20 Produtos
 ### Cenarios De Testes Relacionados Ao Login ###
 Cenario: Tentar Cadastrar Produto Valido Nao Administrador
     [Tags]      POST        Cadastrar_Produto      Cadastar_Produto_Valido_Nao_Administrador
-    ${produto} =    Pegar Produto Nao Cadastrado
+    ${produto} =    Gerar Novo Produto
     Logar E Salvar Token Como Administrador "false"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Mensagem "Rota exclusiva para administradores"
@@ -44,14 +40,14 @@ Cenario: Tentar Cadastrar Produto Valido Nao Administrador
 
 Cenario: Tentar Cadastar Produto Nao Autenticado
     [Tags]      POST        Cadastrar_Produto      Cadastar_Produto_Nao_Autenticado
-    ${produto} =    Pegar Produto Nao Cadastrado
+    ${produto} =    Gerar Novo Produto
     POST EndPoint "/produtos" Com Body "${produto}"
     Validar Status Code "401"
     Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
 Cenario: Tentar Cadastrar Produto Com Token Invalido
     [Tags]      POST        Cadastrar_Produto      Cadastar_Produto_Com_Token_Invalido
-    ${produto} =    Pegar Produto Nao Cadastrado
+    ${produto} =    Gerar Novo Produto
     POST EndPoint "/produtos" Com Body "${produto}" Com Token Invalido
     Validar Status Code "401"
     Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
