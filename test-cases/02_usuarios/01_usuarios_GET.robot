@@ -8,7 +8,7 @@ Test Setup      Criar Sessao
 *** Test Cases ***
 #Cenarios de buscas de usuários
 Cenario: Listar Todos Os Usuarios Cadastrados
-    [Tags]      GET     Usuarios       GET_Usuarios     Listar_Todos
+    [Tags]      GET     Usuarios       GET_Usuarios     Buscar_Todos_Usuarios
     Cadastrar Novo Usuario Administrador "false"
     Get Endpoint "/usuarios"
     Validar Status Code "200"
@@ -22,7 +22,7 @@ Cenario: Buscar Usuario Por ID Valido
     Validar Usuario "${usuario_valido['_id']}"
 
 Cenario: Buscar Usuario Por ID Valido Administrador
-    [Tags]      GET     Usuarios       GET_Usuarios    Buscar_Usuario_Valido
+    [Tags]      GET     Usuarios       GET_Usuarios    Buscar_Usuario_Valido_Administrador
     ${usuario_valido} =    Cadastrar Novo Usuario Administrador "true"
     GET Endpoint "/usuarios/${usuario_valido['_id']}"
     Validar Status Code "200"

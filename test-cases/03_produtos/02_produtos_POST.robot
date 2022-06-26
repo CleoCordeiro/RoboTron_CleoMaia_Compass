@@ -18,7 +18,7 @@ Cenario: Cadastrar Produto Valido
     Validar Se A Key Nao Esta Vazia "_id"
 
 Cenario: Cadastrar 20 Produtos    
-    [Tags]      POST     Produtos       POST_Produtos      Cadastar_20_Produtos
+    [Tags]      POST        Cadastrar_Produto      Cadastar_Produto_20_Produtos
    Logar E Salvar Token Como Administrador "true"
    FOR    ${i}    IN RANGE   20
        ${produto} =    Gerar Novo Produto

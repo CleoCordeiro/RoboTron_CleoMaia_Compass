@@ -4,39 +4,71 @@
 ### Esse repositório foi criado para realização da challange do sprint 5.
 
 <img src="https://raw.githubusercontent.com/CleoCordeiro/Asserts/main/Asserts/dacing.gif" alt="">
-<!-- ### Ele conte duas listas de exercícios desenvolvidos em python:
+<br/>
+<br/>
+<br/>
+
+# Testes Automatizados ServeRest API Usando Robot Framework
 
 
-### Exercícios dia 5:
-Contem 12 exercícios de raciocínio lógico.
+
+:shopping_cart: https://serverest.dev/
 
 
-### Exercícios dia 7:
-Contem 16 exercícios de  manipulação de arquivos nos formatos json e csv.
+## Endpoints
+- [x] Login
+- [x] Usuários
+- [x] Produtos
+- [x] Carrinhos
 
-## instalação
+## Instalação
 
-```bash
-pip install -r requirements.txt
+- Instalar o Python
+- Instalar as dependências do Robot Framework: `python -m pip install -r requirements.txt`
+
+## Bibliotecas externas utilizadas
+
+- RequestsLibrary
+- FakerLibrary
+- JSONLibrary
+
+### Obtendo uma cópia:
+
+```shell
+$ git clone https://github.com/CleoCordeiro/RoboTron_CleoMaia_Compass.git
 ```
 
-## Uso
-Os exercícios podem ser executados de duas formas
+## Execução dos testes
+- Abrir o terminal dentro da pasta realização
 
-```bash
-# Primeira forma menu interativo 
-# Execute o arquivo main que vai abrir o menu para seleção de exercíos.
-# O menu deve ser selecionado usando as setas do teclado, apertando enter entra no menu selecionado.
-python main.py
+Todos os testes
+- Executar no terminal: `robot -d .\reports  .\test-cases`
+
+Testes por Tags
+- Executar no terminal: `robot -d .\reports -i "Tag" .\test-cases`
+Subistitua o "Tag" pelo Tag desejada:
+```shell
+    Principais Tags
+
+        Login           Executa todos os testes relacionados ao Endpoint /login
+
+        Usuarios        Executa todos os testes relacionados ao Endpoint /usuarios
+
+        Produtos        Executa todos os testes relacionados ao Endpoint /produtos
+
+        Carrinhos       Executa todos os testes relacionados ao Endpoint /carrinhos
 ```
-![](assets/2022-06-07-22-40-58.gif)
+-  Exemplo `robot -d .\reports -i Login .\test-cases`
+
+- Cada Endpoint possui subtags que podem executar testes individuais
+
+## Resultado dos testes
+
+- Acessar o arquivo *log.html* na pasta *reports*
+
+![alt](https://raw.githubusercontent.com/CleoCordeiro/Asserts/main/Asserts/testes%20log.png)
 
 
-```bash
-# Segunda forma execução direta do exercício
-# Execute o exercício desejado, exemplo:
-python Exercicios_Dia_5/Exercicio_1.py
-``` -->
 ## Autor
 Cléo Maia Cordeiro
 
