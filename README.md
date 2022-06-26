@@ -12,7 +12,7 @@
 
 ## Endpoints
 - [x] Login
-- [x] Usuários
+- [x] Usuarios
 - [x] Produtos
 - [x] Carrinhos
 
