@@ -1,18 +1,13 @@
 # Challagen Sprint 5 <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/CleoCordeiro/Asserts/main/Asserts/robot-framework.svg" />
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
-### Esse repositório foi criado para realização da challange do sprint 5.
-
-<img src="https://raw.githubusercontent.com/CleoCordeiro/Asserts/main/Asserts/dacing.gif" alt="">
-<br/>
-<br/>
-<br/>
 
 # Testes Automatizados ServeRest API Usando Robot Framework
 
-
-
 :shopping_cart: https://serverest.dev/
+
+
+<img src="https://raw.githubusercontent.com/CleoCordeiro/Asserts/main/Asserts/dacing.gif" alt="">
 
 
 ## Endpoints
@@ -48,15 +43,15 @@ Testes por Tags
 - Executar no terminal: `robot -d .\reports -i "Tag" .\test-cases`
 Subistitua o "Tag" pelo Tag desejada:
 ```shell
-    Principais Tags
+Principais Tags
 
-        Login           Executa todos os testes relacionados ao Endpoint /login
+    Login           Executa todos os testes relacionados ao Endpoint /login
 
-        Usuarios        Executa todos os testes relacionados ao Endpoint /usuarios
+    Usuarios        Executa todos os testes relacionados ao Endpoint /usuarios
 
-        Produtos        Executa todos os testes relacionados ao Endpoint /produtos
+    Produtos        Executa todos os testes relacionados ao Endpoint /produtos
 
-        Carrinhos       Executa todos os testes relacionados ao Endpoint /carrinhos
+    Carrinhos       Executa todos os testes relacionados ao Endpoint /carrinhos
 ```
 -  Exemplo `robot -d .\reports -i Login .\test-cases`
 
