@@ -19,7 +19,7 @@ Library         JSONLibrary
 
 #Sessão para configuração de variáveis
 *** Variables ***
-${url}    http://localhost:3000/
+${url}    https://serverest.dev/
 
 #Sessão para criação de keywords
 *** Keywords ***
